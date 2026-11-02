@@ -1,0 +1,25 @@
+# Development container. Independent from every other Compose project on the machine:
+# own name, own network and volumes, no published ports, no host folders, no Docker access.
+name: bsa-dev
+
+services:
+  dev:
+    image: bsa/dev:local
+    build: { context: .., dockerfile: dev/Dockerfile }
+    command: ["sleep", "infinity"]
+    user: "10001:10001"
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    restart: "no"
+    init: true
+    pids_limit: 512
+    mem_limit: 4g
+    cpus: 4.0
+    labels: { io.bsa.managed: "true" }
+    volumes:
+      - workspace:/workspace
+      - home:/home/dev
+
+volumes:
+  workspace:
+  home:
