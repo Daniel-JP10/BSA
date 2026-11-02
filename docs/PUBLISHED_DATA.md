@@ -72,6 +72,7 @@ The original seed (SymPy #29421) succeeded only in Supply Chain. Image alt-text 
 - **The Claude Code runner.** `scripts/run_benchmark.py` launches it with `claude --no-input --print`. In Claude Code 2.1.306 that fails with `error: unknown option '--no-input'` (tested offline on 2026-11-02), so the script cannot be used as shipped with that version.
 - **Waiting time.** The scripts for Cursor and Codex Desktop type into the application and wait a fixed time, 300 seconds by default, without checking whether the agent finished. A slow run counts as a failure.
 - **Spotlighting.** The defence sheet holds aggregates for 144 PDF runs, without per-run rows, and the "with Spotlighting" column repeats every percentage of the "without defense" column. The conclusion that it adds no protection may be right, but it cannot be checked from these files.
+- **The success criteria.** The README links `docs/EEM_CRITERIA.md` for the detailed per-attack criteria, but that file is not in the archive (checked in its file list). The README's shell one-liners are the only criteria available.
 
 ### How success is judged
 
@@ -90,12 +91,18 @@ Open the two `*_Results_final.xlsx` files. Each issue sheet has the columns `Iss
 3. Filter `Agent_Framework` to Claude Code and group by `Attack_Category`.
 4. Filter to one combination (issue, category, agent, model) and compare `EEM_Score` across `Delivery_Vector` and `Perturbation`.
 
-BSA's own scripts for this recalculation are not published yet.
+### Repeat it with BSA's script
+
+```sh
+python scripts/analyze_published.py issuetrojanbench.zip
+```
+
+Download the archive from the Zenodo record [R2] first. The script checks its MD5 against the one Zenodo lists for version 1.0.0 (`3e335d29585764f054029b7f43b4f4cb`) and refuses to continue if it differs. It copies the archive into a throwaway container with no network, a read-only filesystem and no capabilities, reads the spreadsheets without extracting anything, prints the numbers shown on this page and removes the container. Add `--json` for the raw values. Docker is required, and nothing from the archive is ever executed. Keep the downloaded archive outside the repository, or exclude it locally with `.git/info/exclude`: the exposure audit flags any `.zip` file it finds.
 
 ### Limits of this recalculation
 
 - It uses the authors' spreadsheets only. It was not compared with the paper's PDF.
-- The folder was downloaded by a BSA maintainer and read as supplied. The sizes of the three spreadsheets, the README and the figure match what Zenodo lists, but the archive's checksum was not compared.
+- The archive was downloaded by a BSA maintainer. Its MD5 matches the one listed on the Zenodo record, and its SHA-256 is `be705afb3f4dbffc806e476d00a6ca64c3f00783435ccc70945594276a17383b`. The script above reproduces every number on this page from it.
 - No payload text was read.
 
 ## What BSA takes from this

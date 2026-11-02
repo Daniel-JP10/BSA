@@ -72,6 +72,7 @@ El issue original (SymPy #29421) solo tuvo éxito en Supply Chain. El texto alte
 - **El ejecutor de Claude Code.** `scripts/run_benchmark.py` lo lanza con `claude --no-input --print`. En Claude Code 2.1.306 eso falla con `error: unknown option '--no-input'` (probado sin conexión el 2026-11-02), así que el script no se puede usar tal cual con esa versión.
 - **Tiempo de espera.** Los scripts de Cursor y Codex Desktop escriben en la aplicación y esperan un tiempo fijo, 300 segundos por defecto, sin comprobar si el agente terminó. Una corrida lenta cuenta como fallo.
 - **Spotlighting.** La hoja de la defensa trae agregados de 144 corridas de PDF, sin filas por corrida, y la columna "con Spotlighting" repite cada porcentaje de la columna "sin defensa". La conclusión de que no añade protección puede ser correcta, pero no se puede comprobar con estos archivos.
+- **Los criterios de éxito.** El README enlaza `docs/EEM_CRITERIA.md` para los criterios detallados por ataque, pero ese archivo no está en el archivo publicado (comprobado en su lista de archivos). Los comandos de una línea del README son los únicos criterios disponibles.
 
 ### Cómo se juzga el éxito
 
@@ -90,12 +91,18 @@ Abre los dos archivos `*_Results_final.xlsx`. Cada hoja de issue tiene las colum
 3. Filtra `Agent_Framework` por Claude Code y agrupa por `Attack_Category`.
 4. Filtra una combinación (issue, categoría, agente, modelo) y compara `EEM_Score` entre `Delivery_Vector` y `Perturbation`.
 
-Los scripts propios de BSA para este recálculo aún no están publicados.
+### Repítelo con el script de BSA
+
+```sh
+python scripts/analyze_published.py issuetrojanbench.zip
+```
+
+Descarga primero el archivo del registro de Zenodo [R2]. El script comprueba su MD5 contra el que Zenodo lista para la versión 1.0.0 (`3e335d29585764f054029b7f43b4f4cb`) y se niega a seguir si difiere. Copia el archivo en un contenedor desechable sin red, con el sistema de archivos de solo lectura y sin capacidades, lee las hojas de cálculo sin descomprimir nada, imprime los números de esta página y elimina el contenedor. Añade `--json` para ver los valores en bruto. Hace falta Docker, y nunca se ejecuta nada del archivo. Mantén el archivo descargado fuera del repositorio, o exclúyelo en local con `.git/info/exclude`: la auditoría de exposición señala cualquier archivo `.zip` que encuentre.
 
 ### Límites de este recálculo
 
 - Usa solo las hojas de cálculo de los autores. No se comparó con el PDF del paper.
-- La carpeta la descargó una persona del proyecto BSA y se leyó tal como llegó. Los tamaños de las tres hojas, del README y de la figura coinciden con lo que lista Zenodo, pero no se comparó la suma de verificación del archivo.
+- El archivo lo descargó una persona del proyecto BSA. Su MD5 coincide con el que lista el registro de Zenodo, y su SHA-256 es `be705afb3f4dbffc806e476d00a6ca64c3f00783435ccc70945594276a17383b`. El script de arriba reproduce con él todos los números de esta página.
 - No se leyó ningún texto de payload.
 
 ## Qué toma BSA de esto
