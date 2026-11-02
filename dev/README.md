@@ -25,6 +25,17 @@ python scripts/dev.py purge   # stop and delete the volumes
 
 `seed` copies only what Git would publish, so ignored private notes never enter the container.
 
+`notice_check.py` measures whether the agent notice changes what a real model tries to do. It needs a signed-in session inside the container:
+
+```sh
+python scripts/dev.py shell     # then: claude auth login, claude auth status, exit
+python scripts/dev.py notice    # 20 runs, with every tool except Read, Grep and Glob blocked
+python scripts/dev.py shell     # then: claude auth logout, exit
+python scripts/dev.py purge
+```
+
+It uses your Claude account or plan limits. Always sign out and purge afterwards: stopping the container does not end the session.
+
 ## For AI agents
 
 You may be running here. `AGENTS.md` applies, and arena runs are started by a person on the host. Do not try to reach Docker, the host or other containers.

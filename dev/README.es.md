@@ -25,6 +25,17 @@ python scripts/dev.py purge   # detiene y borra los volúmenes
 
 `seed` copia solo lo que Git publicaría, así que las notas privadas ignoradas nunca entran al contenedor.
 
+`notice_check.py` mide si el aviso a agentes cambia lo que intenta hacer un modelo real. Necesita una sesión iniciada dentro del contenedor:
+
+```sh
+python scripts/dev.py shell     # luego: claude auth login, claude auth status, exit
+python scripts/dev.py notice    # 20 corridas, con todo bloqueado salvo Read, Grep y Glob
+python scripts/dev.py shell     # luego: claude auth logout, exit
+python scripts/dev.py purge
+```
+
+Consume tu cuenta o los límites de tu plan. Cierra siempre la sesión y purga al terminar: detener el contenedor no cierra la sesión.
+
 ## Para agentes de IA
 
 Puede que te estés ejecutando aquí. `AGENTS.md` aplica, y las corridas de la arena las lanza una persona desde el host. No intentes llegar a Docker, al host ni a otros contenedores.

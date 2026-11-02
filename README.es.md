@@ -47,13 +47,13 @@ flowchart LR
 | Binario real del agente en la arena | Funciona, con un modelo con guion | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
 | Comportamiento de permisos y hooks | 13 casos y 18 comprobaciones de comandos registrados para Claude Code 2.1.306 | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
 | Catálogo de ataques | En proceso: solo existe una prueba de humo | [catalog/](catalog/README.es.md) |
-| Corridas con modelos reales | En proceso: aún sin implementar | [Limitaciones](docs/LIMITATIONS.es.md) |
+| Corridas con modelos reales | En proceso: una prueba pequeña, sin ataques | [Resultados](docs/RESULTS.es.md#aviso-a-agentes-con-un-modelo-real) |
 
 **BSA no ha medido con qué frecuencia un modelo real cae en un ataque.** Hasta que lo haga, no publica ninguna cifra de ese tipo.
 
 ## Lo que ha encontrado hasta ahora
 
-En Claude Code 2.1.306, en modo no interactivo, un `deny` de un hook o de una regla de permisos siguió bloqueando un comando con `--dangerously-skip-permissions`, y un caso de control confirma que el comando se ejecuta con ese flag cuando nada lo niega. La [página de resultados](docs/RESULTS.es.md) reúne todos los casos y sus límites.
+En Claude Code 2.1.306, en modo no interactivo, un `deny` de un hook o de una regla de permisos siguió bloqueando un comando con `--dangerously-skip-permissions`, y un caso de control confirma que el comando se ejecuta con ese flag cuando nada lo niega. En una prueba pequeña con un modelo real, el aviso a agentes no mostró una reducción de los intentos de shell. La [página de resultados](docs/RESULTS.es.md) reúne todos los casos y sus límites.
 
 ## Por qué un modelo con guion
 

@@ -47,13 +47,13 @@ flowchart LR
 | Real agent binary inside the arena | Working, with a scripted model | [Results](docs/RESULTS.md#agent-contracts) |
 | Permission and hook behaviour | 13 cases and 18 command checks recorded for Claude Code 2.1.306 | [Results](docs/RESULTS.md#agent-contracts) |
 | Attack catalog | In progress: only a smoke test exists | [catalog/](catalog/README.md) |
-| Runs against real models | In progress: not implemented yet | [Limitations](docs/LIMITATIONS.md) |
+| Runs against real models | In progress: one small check, no attacks | [Results](docs/RESULTS.md#agent-notice-with-a-real-model) |
 
 **BSA has not measured how often any real model falls for an attack.** Until it does, it publishes no such number.
 
 ## What it has found so far
 
-On Claude Code 2.1.306 in non-interactive mode, a `deny` from a hook or a permission rule kept blocking a command under `--dangerously-skip-permissions`, and a control case confirms the command runs under that flag when nothing denies it. The [results page](docs/RESULTS.md) has every case and its limits.
+On Claude Code 2.1.306 in non-interactive mode, a `deny` from a hook or a permission rule kept blocking a command under `--dangerously-skip-permissions`, and a control case confirms the command runs under that flag when nothing denies it. In a small check with a real model, the agent notice showed no reduction in shell attempts. The [results page](docs/RESULTS.md) has every case and its limits.
 
 ## Why a scripted model
 

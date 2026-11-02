@@ -3,6 +3,7 @@
   up      build and start it
   seed    copy the publishable files into its volume
   shell   open a shell inside it
+  notice  run the agent notice check, after signing in inside
   down    stop it and keep the volumes
   purge   stop it and delete its volumes
 """
@@ -40,6 +41,8 @@ def main() -> int:
     if command == "seed":
         seed()
         return 0
+    if command == "notice":
+        return subprocess.run([*COMPOSE, "exec", "-T", "dev", "python3", "/workspace/dev/notice_check.py"]).returncode
     if command == "shell":
         return subprocess.run([*COMPOSE, "exec", "dev", "bash"]).returncode
     if command == "down":
