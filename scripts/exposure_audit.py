@@ -40,7 +40,8 @@ ALLOWED_PRIVATE_IP = "172.17.0.1"
 FORBIDDEN_FILES = (".env", ".env.*", "*.pem", "*.key", "id_rsa*", "id_ed25519*", "id_ecdsa*", "*.jsonl", "credentials*",
                    "*.p12", "*.pfx", "*.sqlite", "*.db", ".npmrc", ".pypirc", ".netrc", ".git-credentials", "*.kdbx",
                    "*.ppk", "*.sql", "*.zip", "*.log", "settings.local.json")
-PNG_CHUNKS = {"IHDR", "PLTE", "IDAT", "IEND"}
+# Image data and display settings only: text, EXIF and timestamps stay forbidden.
+PNG_CHUNKS = {"IHDR", "PLTE", "IDAT", "IEND", "sRGB", "gAMA", "pHYs"}
 HIDDEN_CATEGORIES = {"Cf", "Cc", "Co", "Cn", "Zl", "Zp"}
 HIDDEN_LOOKALIKES = (0x034F, 0x115F, 0x1160, 0x3164)
 MAX_FILE = 2_000_000

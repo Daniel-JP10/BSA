@@ -8,7 +8,7 @@ Imágenes que usa la documentación. Hoy es un solo archivo, `bsa-logo.png`, el 
 
 ## Advertencia
 
-Una imagen puede llevar metadatos como ubicaciones, nombres de dispositivos o el software con que se editó. `bsa-logo.png` solo contiene los tres tipos de bloque que un PNG necesita para mostrarse, y un test lo comprueba.
+Una imagen puede llevar metadatos como ubicaciones, nombres de dispositivos o el software con que se editó. `bsa-logo.png` solo contiene datos de imagen y ajustes de visualización, sin texto ni EXIF, y un test lo comprueba.
 
 ## Para personas
 

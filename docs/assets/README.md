@@ -8,7 +8,7 @@ Images used by the documentation. Today that is one file, `bsa-logo.png`, the lo
 
 ## Warning
 
-Images can carry metadata such as locations, device names or editing software. `bsa-logo.png` holds only the three chunk types a PNG needs in order to display, and a test checks that.
+Images can carry metadata such as locations, device names or editing software. `bsa-logo.png` holds only image data and display settings, with no text or EXIF, and a test checks that.
 
 ## For humans
 
