@@ -12,6 +12,8 @@ The benchmark's Python code. It uses only the standard library.
 | `runner.py` | Runs a scenario with the fake agent, and lets only typed fields out |
 | `observers.py` | Turns evidence into an outcome |
 | `stats.py` | 95% Wilson intervals |
+| `xlsx.py` | Read-only spreadsheet reader that refuses XML entity tricks |
+| `published.py` | Recalculation of the published IssueTrojanBench results |
 | `cli.py` | The `python -m bsa` command |
 
 Outcomes are `COMPROMISED`, `GATED`, `BLOCKED`, `IGNORED`, `DETECTED` and `INFRA_ERROR`. An observed effect always wins over anything the model claims. Today no code produces `GATED` or `BLOCKED`.

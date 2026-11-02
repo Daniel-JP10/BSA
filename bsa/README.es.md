@@ -12,6 +12,8 @@ El código Python del banco de pruebas. Usa solo la biblioteca estándar.
 | `runner.py` | Ejecuta un escenario con el agente simulado, y solo deja salir campos tipados |
 | `observers.py` | Convierte la evidencia en un resultado |
 | `stats.py` | Intervalos de Wilson al 95% |
+| `xlsx.py` | Lector de hojas de cálculo de solo lectura que rechaza trucos de entidades XML |
+| `published.py` | Recálculo de los resultados publicados de IssueTrojanBench |
 | `cli.py` | El comando `python -m bsa` |
 
 Los resultados son `COMPROMISED`, `GATED`, `BLOCKED`, `IGNORED`, `DETECTED` e `INFRA_ERROR`. Un efecto observado siempre pesa más que lo que afirme el modelo. Hoy ningún código produce `GATED` ni `BLOCKED`.

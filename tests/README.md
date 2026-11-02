@@ -4,7 +4,7 @@
 
 ## What this is
 
-Unit tests with no Docker, no key and no network. `test_core.py` covers statistics, outcomes, the safety validator, the result filter, the proxy's search-tool filter, the scripted model and the audit. `test_docs.py` checks that every folder documents itself in both languages.
+Unit tests with no Docker, no key and no network. `test_core.py` covers statistics, outcomes, the safety validator, the result filter, the proxy's search-tool filter, the scripted model and the audit. `test_docs.py` checks that every folder documents itself in both languages. `test_xlsx.py` and `test_published.py` cover the spreadsheet reader and the recalculation of published data, using synthetic spreadsheets.
 
 ## Warning
 
