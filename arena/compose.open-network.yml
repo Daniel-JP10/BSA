@@ -1,0 +1,5 @@
+# Used only by `python scripts/arena.py open-network`, in its own Compose project.
+# It opens the network on purpose, to show that the network checks can fail.
+networks:
+  arena:
+    internal: false

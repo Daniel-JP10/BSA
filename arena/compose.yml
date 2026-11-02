@@ -1,0 +1,66 @@
+# The arena. Default mode has NO route to the internet: the model is simulated.
+# Everything here is scoped to this Compose project and never publishes a port.
+name: bsa-arena
+
+x-hardened: &hardened
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  restart: "no"
+  stop_grace_period: 2s
+  labels: { io.bsa.managed: "true" }
+
+services:
+  agent:
+    <<: *hardened
+    image: bsa/agent:local
+    build: { context: .., dockerfile: arena/agent/Dockerfile }
+    command: ["sleep", "3600"]
+    user: "10001:10001"
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: 2.0
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+      - /workspace:size=256m,uid=10001,gid=10001,mode=700
+      - /home/agent:size=128m,uid=10001,gid=10001,mode=700
+    networks: [arena]
+    environment:
+      ANTHROPIC_BASE_URL: http://llm-proxy:8080
+      ANTHROPIC_AUTH_TOKEN: arena-dummy-token
+    depends_on: [llm-proxy, sink]
+
+  llm-proxy:
+    <<: *hardened
+    image: bsa/services:local
+    build: { context: .., dockerfile: arena/services/Dockerfile }
+    command: ["python", "llm_proxy.py"]
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 0.5
+    networks: [arena]
+    depends_on: [fake-llm]
+
+  fake-llm:
+    <<: *hardened
+    image: bsa/services:local
+    command: ["python", "fake_llm.py"]
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 0.5
+    networks: [arena]
+
+  sink:
+    <<: *hardened
+    image: bsa/services:local
+    command: ["python", "sink.py"]
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 0.5
+    networks:
+      arena:
+        aliases: [sink.bsa.test]
+
+networks:
+  arena:
+    internal: true
