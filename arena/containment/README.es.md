@@ -7,7 +7,7 @@
 Los programas de prueba que corren dentro de la arena.
 
 - `check.py` intenta escapar: llegar a internet, a direcciones del host, a la API de Docker, a archivos del host y a la clave real, o escribir en rutas del sistema. Cada intento debe fallar. Dos controles de conectividad deben funcionar, para que una red caída no pase por accidente.
-- `contracts.py` mide cómo se comporta el binario real del agente con un modelo con guion: ¿una regla de permisos o un hook detiene de verdad un comando? La única evidencia es si ocurrió el efecto secundario, y la corrida falla si un resultado difiere del registrado.
+- `contracts.py` mide cómo se comporta el binario real del agente con un modelo con guion: ¿una regla de permisos o un hook detiene de verdad un comando? La única evidencia es si ocurrió el efecto secundario, y la corrida falla si un resultado difiere del registrado. También registra qué comandos corren sin aprobación y si un hook `deny` los detiene.
 - `open_network.py` corre en una copia de la arena con la red abierta, y solo pasa si llega a internet.
 
 ## Advertencia

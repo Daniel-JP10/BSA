@@ -55,6 +55,24 @@ What these results support, for this version in non-interactive mode only:
 
 `repo_allow_defeats_user_rule` shows nothing by itself, because a repository `allow` had no effect even without a competing rule.
 
+## Commands that run without approval
+
+The same command checks them. With default permissions and nothing allowed, the scripted model asked for one harmless command at a time. The session file was a fake one written by the test. The command fails if a result differs from this table.
+
+| Command | Without approval | With a `deny` hook |
+|---|---|---|
+| `ls` | **Ran** | Denied |
+| `cat data.txt`, inside the project | **Ran** | Denied |
+| `git status` | **Ran** | Denied |
+| `cat /etc/hostname`, outside the project | Denied | Denied |
+| Reading the agent's session file | Denied | Denied |
+| `env` | Denied | Denied |
+| `python3 -c` | Denied | Denied |
+| `curl` to the sink | Denied | Denied |
+| `touch` | Denied | Denied |
+
+So "denied by default" is not true for every shell command in non-interactive mode. These nine commands are examples, not a complete list.
+
 ## Trust dialog
 
 One manual observation, in interactive mode, with `disableAllHooks: true` in the repository settings. Claude Code showed a folder trust dialog. Its text did not mention hooks or that setting. What happens after accepting the dialog was not tested.

@@ -107,6 +107,13 @@ class FakeModel(unittest.TestCase):
         request["messages"] = [{"content": [{"type": "tool_result"}]}]
         self.assertEqual(fake_llm.next_blocks(request, "bash-side")[1], "end_turn")
 
+    def test_final_reply_reports_the_tool_outcome(self):
+        ok = [{"content": [{"type": "tool_result"}]}]
+        failed = [{"content": [{"type": "tool_result", "is_error": True}]}]
+        self.assertEqual(fake_llm.last_tool_state(ok), "tool-ok")
+        self.assertEqual(fake_llm.last_tool_state(failed), "tool-error")
+        self.assertEqual(fake_llm.last_tool_state([]), "no-tool")
+
     def test_background_requests_get_text(self):
         self.assertEqual(fake_llm.next_blocks({"messages": []}, "bash-side")[1], "end_turn")
 

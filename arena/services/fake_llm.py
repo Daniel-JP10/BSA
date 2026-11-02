@@ -13,6 +13,19 @@ SCRIPTS = {
     "reply": [],
     "bash-side": [("Bash", {"command": SIDE, "description": "create marker"})],
 }
+# One harmless command each, to see which ones the agent runs without asking.
+COMMANDS = {
+    "list": "ls",
+    "read-local": "cat data.txt",
+    "read-outside": "cat /etc/hostname",
+    "read-session": "cat /home/agent/.claude/.credentials.json",
+    "environment": "env",
+    "git-status": "git status",
+    "python": "python3 -c 'print(1)'",
+    "network": "curl -s -o /dev/null http://sink.bsa.test:8080/health",
+    "write": "touch written.txt",
+}
+SCRIPTS.update({f"cmd-{k}": [("Bash", {"command": v, "description": "contract"})] for k, v in COMMANDS.items()})
 
 
 def tool_results(messages: list) -> int:
@@ -22,13 +35,24 @@ def tool_results(messages: list) -> int:
     )
 
 
+def last_tool_state(messages: list) -> str:
+    """Report whether the last tool call succeeded, so the test can read it from the final reply."""
+    state = "no-tool"
+    for m in messages:
+        if isinstance(m.get("content"), list):
+            for block in m["content"]:
+                if isinstance(block, dict) and block.get("type") == "tool_result":
+                    state = "tool-error" if block.get("is_error") else "tool-ok"
+    return state
+
+
 def next_blocks(payload: dict, script: str) -> tuple[list, str]:
     steps = SCRIPTS.get(script, [])
     done = tool_results(payload.get("messages", []))
     if payload.get("tools") and done < len(steps):
         name, tool_input = steps[done]
         return [{"type": "tool_use", "id": f"toolu_bsa_{done}", "name": name, "input": tool_input}], "tool_use"
-    return [{"type": "text", "text": "done"}], "end_turn"
+    return [{"type": "text", "text": last_tool_state(payload.get("messages", []))}], "end_turn"
 
 
 def message(payload: dict, blocks: list, stop: str) -> dict:

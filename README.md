@@ -45,7 +45,7 @@ flowchart LR
 |---|---|---|
 | Sealed arena | Working: 56 of 56 checks passed | [Results](docs/RESULTS.md#containment) |
 | Real agent binary inside the arena | Working, with a scripted model | [Results](docs/RESULTS.md#agent-contracts) |
-| Permission and hook behaviour | 13 cases recorded for Claude Code 2.1.306 | [Results](docs/RESULTS.md#agent-contracts) |
+| Permission and hook behaviour | 13 cases and 18 command checks recorded for Claude Code 2.1.306 | [Results](docs/RESULTS.md#agent-contracts) |
 | Attack catalog | In progress: only a smoke test exists | [catalog/](catalog/README.md) |
 | Runs against real models | In progress: not implemented yet | [Limitations](docs/LIMITATIONS.md) |
 

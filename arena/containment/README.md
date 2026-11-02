@@ -7,7 +7,7 @@
 The test programs that run inside the arena.
 
 - `check.py` tries to escape: reaching the internet, host addresses, the Docker API, host files and the real key, or writing to system paths. Each attempt must fail. Two connectivity controls must succeed, so a dead network cannot pass by accident.
-- `contracts.py` measures how the real agent binary behaves against a scripted model: does a permission rule or a hook actually stop a command? The only evidence is whether the side effect happened, and the run fails if a result differs from the recorded one.
+- `contracts.py` measures how the real agent binary behaves against a scripted model: does a permission rule or a hook actually stop a command? The only evidence is whether the side effect happened, and the run fails if a result differs from the recorded one. It also records which commands run without approval, and whether a `deny` hook stops them.
 - `open_network.py` runs in a copy of the arena with its network opened, and passes only if the internet is reachable.
 
 ## Warning

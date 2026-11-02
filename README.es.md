@@ -45,7 +45,7 @@ flowchart LR
 |---|---|---|
 | Arena sellada | Funciona: 56 de 56 comprobaciones correctas | [Resultados](docs/RESULTS.es.md#contención) |
 | Binario real del agente en la arena | Funciona, con un modelo con guion | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
-| Comportamiento de permisos y hooks | 13 casos registrados para Claude Code 2.1.306 | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
+| Comportamiento de permisos y hooks | 13 casos y 18 comprobaciones de comandos registrados para Claude Code 2.1.306 | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
 | Catálogo de ataques | En proceso: solo existe una prueba de humo | [catalog/](catalog/README.es.md) |
 | Corridas con modelos reales | En proceso: aún sin implementar | [Limitaciones](docs/LIMITATIONS.es.md) |
 
