@@ -47,7 +47,7 @@ flowchart LR
 | Sealed arena | Working: 56 of 56 checks passed | [Results](docs/RESULTS.md#containment) |
 | Real agent binary inside the arena | Working, with a scripted model | [Results](docs/RESULTS.md#agent-contracts) |
 | Permission and hook behaviour | 13 cases and 18 command checks recorded for Claude Code 2.1.306 | [Results](docs/RESULTS.md#agent-contracts) |
-| Analysis of published data | Done for one benchmark | [Published data](docs/PUBLISHED_DATA.md) |
+| Analysis of published data | IssueTrojanBench recalculated, five AIShellJack files checked | [Published data](docs/PUBLISHED_DATA.md) |
 | Attack catalog | In progress: only a smoke test exists | [catalog/](catalog/README.md) |
 | Runs against real models | One small check, no attacks. Live attacks are on hold | [Results](docs/RESULTS.md#agent-notice-with-a-real-model) |
 

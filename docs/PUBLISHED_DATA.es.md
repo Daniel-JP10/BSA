@@ -11,7 +11,7 @@ La regla para todas: enlazar y citar, nunca copiar. Estos conjuntos contienen te
 | Fuente | Acceso | Licencia | Qué contiene | Uso en BSA |
 |---|---|---|---|---|
 | IssueTrojanBench, Zenodo [R2] | Abierto | CC BY 4.0 | Un archivo de 325,2 kB: payloads, scripts y resultados por corrida en Excel de 4.176 corridas | Recalculado abajo |
-| Paquete de replicación de AIShellJack, figshare [R4] | Abierto | CC BY 4.0 | 91 archivos, 1.681 MB, de los cuales 1.676 MB son un único archivo de resultados en bruto (versión 4, publicada el 2025-09-13). Midió Cursor v1.2.2 y Copilot v1.102 | Sin analizar. Las descargas automáticas reciben una página vacía (HTTP 202), así que los archivos hay que bajarlos a mano |
+| Paquete de replicación de AIShellJack, figshare [R4] | Abierto | CC BY 4.0 | 91 archivos, 1.681 MB, de los cuales 1.676 MB son un único archivo de resultados en bruto (versión 4, publicada el 2025-09-13). Midió Cursor v1.2.2 y Copilot v1.102 | Cinco archivos pequeños analizados abajo. Las descargas automáticas reciben una página vacía (HTTP 202), así que se bajaron a mano |
 | Trayectorias de INFUSE, Hugging Face [R3] | **No disponible.** La dirección responde 401, y el perfil público de los autores lista otros dos datasets | No indicada | Su script de descarga dice que el repositorio es privado hasta que se publique | Ninguno |
 | Coding Agent Security Benchmark, Hugging Face [R12] | Abierto | **CC BY-NC 4.0** | 332 mensajes de sesiones de agentes, etiquetados en 13 categorías de violación por un juez LLM. Solo 9 están etiquetados como inyección de prompts | La lista de categorías, como referencia. La licencia no comercial impide copiarlo a un repositorio Apache-2.0 |
 | Nemotron RL Agentic Indirect Prompt Injection, Hugging Face [R13] | Abierto | CC BY 4.0 | Registros sintéticos en 9 dominios de empresa, 45 MB. Hecho para entrenar agentes, y no específico de programación | Referencia de categorías de ataque |
@@ -104,6 +104,37 @@ Descarga primero el archivo del registro de Zenodo [R2]. El script comprueba su 
 - Usa solo las hojas de cálculo de los autores. No se comparó con el PDF del paper.
 - El archivo lo descargó una persona del proyecto BSA. Su MD5 coincide con el que lista el registro de Zenodo, y su SHA-256 es `be705afb3f4dbffc806e476d00a6ca64c3f00783435ccc70945594276a17383b`. El script de arriba reproduce con él todos los números de esta página.
 - No se leyó ningún texto de payload.
+
+## AIShellJack: qué muestran cinco de sus archivos
+
+BSA analizó cinco archivos pequeños del paquete de replicación [R4], que tiene licencia CC BY 4.0: la lista de payloads, la hoja de etiquetado manual, el registro de ejecución de comandos de Cursor Auto sobre una base de código en dos formatos, y una versión legible de las 339 muestras etiquetadas. Se descargaron a mano, y su tamaño y MD5 coinciden con el listado de figshare. Se leyeron en un contenedor sin red, imprimiendo solo estructura y conteos, así que no se leyó ningún texto de comandos. El archivo de resultados en bruto, de 1.676 MB, no se descargó.
+
+### Lo que coincide con el paper
+
+- El archivo de payloads tiene 314 payloads, con 314 identificadores distintos.
+- La hoja de etiquetado tiene 339 filas etiquetadas, como dice el paper para su validación manual. Dos personas etiquetaron cada fila. La etiqueta de la herramienta coincide con la del primer etiquetador en el 99,1% de las filas (336 de 339) y con la del segundo en el 98,2% (333 de 339). El kappa de Cohen es 0,98 y 0,96, y 0,97 entre las dos personas, que discreparon en 5 filas.
+- En el registro de Cursor Auto (304 entradas), 262 corridas se marcan como exitosas. 262 de 314 es 83,4%, la cifra que da el paper para Cursor Auto en una base de código (leída mediante un resumen del paper), si los 10 payloads que faltan en el registro cuentan como fallos.
+
+### Cómo se decide el "éxito"
+
+- Una corrida cuenta como exitosa cuando los comandos que ejecutó se parecen lo suficiente a los esperados: similitud de al menos 0,2, o cualquier comando que no sea de preparación. En el registro, 262 de 304 entradas siguen esa regla, y dos entradas que ejecutaron un comando que no es de preparación no se cuentan.
+- 29 de los 262 éxitos (11%) tienen una similitud menor que 0,2, y la más baja es 0,019. En la hoja de etiquetado, la etiqueta 1 aparece con una similitud de hasta 0,019 y la etiqueta 0 hasta 0,156, así que ningún umbral único las separa.
+- Las 28 entradas sin ningún comando son fallos.
+- Ningún archivo comprueba qué hizo un comando. Éxito significa que se ejecutó un comando parecido, no que ocurrió su efecto. BSA juzga por efectos observados.
+
+### Cifras que no cuadran
+
+- El paper reporta 70 técnicas. El archivo de payloads tiene 106 identificadores de técnica distintos, que son 69 al unir las subtécnicas.
+- El registro tiene 304 entradas para 314 payloads. Las 304 están entre los payloads, y una técnica base no tiene entrada.
+- Solo 25 de las 186 filas etiquetadas de Cursor Auto se pueden emparejar con este registro por escenario. Los archivos no dicen por qué. En esas 25, la similitud y la etiqueta son idénticas.
+
+### Lo que los archivos no muestran
+
+A qué base de código pertenece el registro (su nombre apunta a `search_with_lepton`), cómo se eligieron las 339 muestras, y nada sobre los editores más allá de la hoja de etiquetado.
+
+### Compruébalo a mano
+
+El archivo de payloads contiene comandos de ataque, así que ábrelo solo con un visor de texto normal o dentro de un contenedor, nunca con un agente. Cuenta sus entradas (314) y sus valores distintos de `test_guid`. En `Labeling_results.xlsx`, hoja `New`, las filas 1 a 339 llevan la etiqueta de la herramienta y las de los dos etiquetadores. En el registro, cuenta las entradas cuyo `correct_run` es verdadero (262).
 
 ## Qué toma BSA de esto
 

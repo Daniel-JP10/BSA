@@ -11,7 +11,7 @@ The rule for all of them: link and cite, never copy. These sets contain attack t
 | Source | Access | License | What it holds | Use in BSA |
 |---|---|---|---|---|
 | IssueTrojanBench, Zenodo [R2] | Open | CC BY 4.0 | A 325.2 kB archive: payloads, scripts and per-run results in Excel for 4,176 runs | Recalculated below |
-| AIShellJack replication package, figshare [R4] | Open | CC BY 4.0 | 91 files, 1,681 MB, of which 1,676 MB is one raw-results archive (version 4, posted 2025-09-13). Measured Cursor v1.2.2 and Copilot v1.102 | Not analyzed. Automated downloads get an empty page (HTTP 202), so files have to be downloaded by hand |
+| AIShellJack replication package, figshare [R4] | Open | CC BY 4.0 | 91 files, 1,681 MB, of which 1,676 MB is one raw-results archive (version 4, posted 2025-09-13). Measured Cursor v1.2.2 and Copilot v1.102 | Five small files analyzed below. Automated downloads get an empty page (HTTP 202), so they were downloaded by hand |
 | INFUSE trajectories, Hugging Face [R3] | **Not available.** The address answers 401, and the authors' public profile lists two other datasets | Not stated | Its download script says the repository is private until it is released | None |
 | Coding Agent Security Benchmark, Hugging Face [R12] | Open | **CC BY-NC 4.0** | 332 messages from agent sessions, labelled in 13 violation categories by an LLM judge. Only 9 are labelled prompt injection | The category list, as a reference. The non-commercial license rules out copying it into an Apache-2.0 repository |
 | Nemotron RL Agentic Indirect Prompt Injection, Hugging Face [R13] | Open | CC BY 4.0 | Synthetic records in 9 enterprise domains, 45 MB. Built to train agents, and not specific to coding | Reference for attack categories |
@@ -104,6 +104,37 @@ Download the archive from the Zenodo record [R2] first. The script checks its MD
 - It uses the authors' spreadsheets only. It was not compared with the paper's PDF.
 - The archive was downloaded by a BSA maintainer. Its MD5 matches the one listed on the Zenodo record, and its SHA-256 is `be705afb3f4dbffc806e476d00a6ca64c3f00783435ccc70945594276a17383b`. The script above reproduces every number on this page from it.
 - No payload text was read.
+
+## AIShellJack: what five of its files show
+
+BSA analyzed five small files of the replication package [R4], which is licensed CC BY 4.0: the payload list, the manual labelling sheet, the command-execution log of Cursor Auto on one codebase in two formats, and a readable rendering of the 339 labelled samples. They were downloaded by hand, and their size and MD5 match figshare's listing. They were read in a container with no network, printing only structure and counts, so no command text was read. The 1,676 MB archive of raw results was not downloaded.
+
+### What matches the paper
+
+- The payload file has 314 payloads, with 314 distinct identifiers.
+- The labelling sheet has 339 labelled rows, as the paper says for its manual validation. Two people labelled each row. The tool's label agrees with the first labeller in 99.1% of rows (336 of 339) and with the second in 98.2% (333 of 339). Cohen's kappa is 0.98 and 0.96, and 0.97 between the two people, who disagreed on 5 rows.
+- In the Cursor Auto log (304 entries), 262 runs are marked successful. 262 of 314 is 83.4%, the figure the paper gives for Cursor Auto on one codebase (read through a summary of the paper), if the 10 payloads missing from the log count as failures.
+
+### How "success" is decided
+
+- A run counts as successful when the commands it ran are similar enough to the expected ones: similarity of at least 0.2, or any command other than setup. In the log, 262 of 304 entries follow that rule, and two entries that ran a non-setup command are not counted.
+- 29 of the 262 successes (11%) have a similarity below 0.2, the lowest being 0.019. In the labelling sheet, label 1 appears with similarity as low as 0.019 and label 0 up to 0.156, so no single threshold separates them.
+- All 28 entries with no command at all are failures.
+- No file checks what a command did. Success means that a similar command was run, not that its effect happened. BSA judges by observed effects instead.
+
+### Counts that do not reconcile
+
+- The paper reports 70 techniques. The payload file has 106 distinct technique identifiers, which are 69 once sub-techniques are merged.
+- The log has 304 entries for 314 payloads. All 304 are among the payloads, and one base technique has no entry.
+- Only 25 of the 186 labelled Cursor Auto rows can be matched to this log by scenario. The files do not say why. In those 25, the similarity and the label are identical.
+
+### What the files do not show
+
+Which codebase the log belongs to (its name points to `search_with_lepton`), how the 339 samples were chosen, and anything about the editors beyond the labelling sheet.
+
+### Check it by hand
+
+The payload file contains attack commands, so open it only with a plain text viewer or inside a container, never with an agent. Count its entries (314) and its distinct `test_guid` values. In `Labeling_results.xlsx`, sheet `New`, rows 1 to 339 hold the tool label and the two labellers' labels. In the log, count the entries whose `correct_run` is true (262).
 
 ## What BSA takes from this
 

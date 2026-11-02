@@ -13,7 +13,7 @@ Start here for what BSA has measured, what it assumes and what it cannot tell yo
 | [THREAT_MODEL.md](THREAT_MODEL.md) | What BSA evaluates, and what threatens BSA itself |
 | [LIMITATIONS.md](LIMITATIONS.md) | What BSA does not cover or prove |
 | [RELATED_WORK.md](RELATED_WORK.md) | Academic benchmarks and how BSA relates to them |
-| [PUBLISHED_DATA.md](PUBLISHED_DATA.md) | Public data on attacks, and a recalculation of IssueTrojanBench |
+| [PUBLISHED_DATA.md](PUBLISHED_DATA.md) | Public data on attacks, and what BSA found in IssueTrojanBench and AIShellJack files |
 | [REFERENCES.md](REFERENCES.md) | Numbered sources, and which claims depend on them |
 
 Each document has a Spanish version ending in `.es.md`.
