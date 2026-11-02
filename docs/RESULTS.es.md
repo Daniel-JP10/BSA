@@ -53,6 +53,8 @@ Lo que estos resultados respaldan, solo para esta versión y en modo no interact
 - Un `deny` de un hook o de una regla de permisos siguió bloqueando el comando con `--dangerously-skip-permissions`. `control_bypass_runs` confirma que el comando se ejecuta con ese flag cuando no hay `deny`.
 - Un `.claude/settings.json` de repositorio con `disableAllHooks: true` desactivó un hook de usuario, pero no uno de nivel administrado.
 
+El segundo punto coincide con la [documentación de Claude Code](https://code.claude.com/docs/en/hooks): la precedencia de configuración aplica a `disableAllHooks`, los hooks administrados quedan exentos y `-p` trata la carpeta como confiable. Se registra aquí como contrato, no como un hallazgo nuevo.
+
 `repo_allow_defeats_user_rule` no demuestra nada por sí solo, porque un `allow` de repositorio no tuvo efecto ni siquiera sin una regla en contra.
 
 ## Comandos que corren sin aprobación

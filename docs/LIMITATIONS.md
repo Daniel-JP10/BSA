@@ -5,6 +5,7 @@
 What BSA cannot do yet, and what it may never prove.
 
 - **No attack catalog yet.** The only scenario is a pipeline smoke test.
+- **Live attacks are on hold.** Running attacks against a real product with a real account puts the operator at risk, so BSA does not do it for now. Lower-risk methods come first, and they have a cost: [a survey of 40 benchmarks](https://arxiv.org/abs/2605.16282) reports that lower-fidelity evaluations tend to report lower unsafe rates.
 - **No attacks against real models yet.** The only real model run is a small check of the agent notice. The proxy's mode for real models is not implemented, so the arena still uses a scripted model.
 - **No attack results.** Nothing here says how any agent performs against attacks.
 - **The runner does not drive the real agent yet.** The real binary runs only in the contract tests. Scenario runs use a scripted fake agent, and the `GATED` and `BLOCKED` outcomes are never produced.

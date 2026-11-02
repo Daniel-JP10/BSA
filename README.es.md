@@ -47,9 +47,9 @@ flowchart LR
 | Binario real del agente en la arena | Funciona, con un modelo con guion | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
 | Comportamiento de permisos y hooks | 13 casos y 18 comprobaciones de comandos registrados para Claude Code 2.1.306 | [Resultados](docs/RESULTS.es.md#contratos-del-agente) |
 | Catálogo de ataques | En proceso: solo existe una prueba de humo | [catalog/](catalog/README.es.md) |
-| Corridas con modelos reales | En proceso: una prueba pequeña, sin ataques | [Resultados](docs/RESULTS.es.md#aviso-a-agentes-con-un-modelo-real) |
+| Corridas con modelos reales | Una prueba pequeña, sin ataques. Los ataques en vivo están en pausa | [Resultados](docs/RESULTS.es.md#aviso-a-agentes-con-un-modelo-real) |
 
-**BSA no ha medido con qué frecuencia un modelo real cae en un ataque.** Hasta que lo haga, no publica ninguna cifra de ese tipo.
+**BSA no ha medido con qué frecuencia un modelo real cae en un ataque.** Hasta que lo haga, no publica ninguna cifra de ese tipo. Las corridas de ataques en vivo están [en pausa](docs/LIMITATIONS.es.md) porque ponen en riesgo a quien las ejecuta.
 
 ## Lo que ha encontrado hasta ahora
 

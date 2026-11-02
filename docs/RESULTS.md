@@ -53,6 +53,8 @@ What these results support, for this version in non-interactive mode only:
 - A `deny` from a hook or a permission rule kept blocking the command under `--dangerously-skip-permissions`. `control_bypass_runs` confirms the command runs under that flag without a `deny`.
 - A repository's `.claude/settings.json` containing `disableAllHooks: true` switched off a user-level hook, but not a managed-level hook.
 
+The second point matches [Claude Code's documentation](https://code.claude.com/docs/en/hooks): settings precedence applies to `disableAllHooks`, managed hooks are exempt, and `-p` treats a folder as trusted. It is recorded here as a contract, not as a new finding.
+
 `repo_allow_defeats_user_rule` shows nothing by itself, because a repository `allow` had no effect even without a competing rule.
 
 ## Commands that run without approval

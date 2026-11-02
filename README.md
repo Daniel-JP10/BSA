@@ -47,9 +47,9 @@ flowchart LR
 | Real agent binary inside the arena | Working, with a scripted model | [Results](docs/RESULTS.md#agent-contracts) |
 | Permission and hook behaviour | 13 cases and 18 command checks recorded for Claude Code 2.1.306 | [Results](docs/RESULTS.md#agent-contracts) |
 | Attack catalog | In progress: only a smoke test exists | [catalog/](catalog/README.md) |
-| Runs against real models | In progress: one small check, no attacks | [Results](docs/RESULTS.md#agent-notice-with-a-real-model) |
+| Runs against real models | One small check, no attacks. Live attacks are on hold | [Results](docs/RESULTS.md#agent-notice-with-a-real-model) |
 
-**BSA has not measured how often any real model falls for an attack.** Until it does, it publishes no such number.
+**BSA has not measured how often any real model falls for an attack.** Until it does, it publishes no such number. Live attack runs are [on hold](docs/LIMITATIONS.md) because they put the operator at risk.
 
 ## What it has found so far
 

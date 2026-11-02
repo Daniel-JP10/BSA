@@ -5,6 +5,7 @@
 Lo que BSA todavía no puede hacer y lo que quizá nunca pueda demostrar.
 
 - **Aún no hay catálogo de ataques.** El único escenario es una prueba de humo del flujo.
+- **Los ataques en vivo están en pausa.** Ejecutar ataques contra un producto real con una cuenta real pone en riesgo a quien lo hace, así que BSA no lo hace por ahora. Primero van los métodos de menor riesgo, y tienen un costo: [una revisión de 40 benchmarks](https://arxiv.org/abs/2605.16282) reporta que las evaluaciones de menor fidelidad tienden a mostrar tasas de inseguridad más bajas.
 - **Aún no hay ataques contra modelos reales.** La única corrida con un modelo real es una prueba pequeña del aviso a agentes. El modo con modelo real del proxy no está implementado, así que la arena sigue usando un modelo con guion.
 - **Sin resultados de ataques.** Nada aquí dice cómo se comporta un agente ante ataques.
 - **El runner aún no maneja el agente real.** El binario real solo corre en los tests de contrato. Las corridas de escenarios usan un agente simulado, y los resultados `GATED` y `BLOCKED` nunca se producen.

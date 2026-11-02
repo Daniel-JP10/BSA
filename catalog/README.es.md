@@ -8,6 +8,8 @@ Metadatos de escenarios, un archivo JSON por escenario, sin texto de ataque. Hoy
 
 Los ataques se agruparán en **familias**, y los informes se harán por familia, así que mil variantes generadas de una idea siguen contando como una sola. Las variantes deberán indicar `generated: true`. El validador aún no lo comprueba.
 
+Las corridas de ataques en vivo están en pausa, como explican las [limitaciones](../docs/LIMITATIONS.es.md).
+
 ## Advertencia
 
 Los metadatos describen un ataque sin reproducirlo. Usa los campos estructurados, como `vector`, `technique` y `sink`, nunca la frase que usaría un ataque. Mantén el texto de cargas útiles fuera de esta carpeta, ni siquiera como ejemplo.

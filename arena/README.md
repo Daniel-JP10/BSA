@@ -13,7 +13,7 @@ This is where agents will face attacks, in containers built to be thrown away. E
 | `fake-llm` | A scripted model: no key, no cost, no internet | [`services/`](services/README.md) |
 | `sink` | A simulated attacker destination that records what reaches it | [`services/`](services/README.md) |
 
-By default the arena has no route to the internet. Runs against real models are not implemented yet.
+By default the arena has no route to the internet. Runs against real models are not implemented, and live attacks are on hold.
 
 ## Warning
 

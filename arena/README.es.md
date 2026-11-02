@@ -13,7 +13,7 @@ Aquí es donde los agentes se enfrentarán a los ataques, en contenedores hechos
 | `fake-llm` | Un modelo con guion: sin clave, sin costo, sin internet | [`services/`](services/README.es.md) |
 | `sink` | Un destino simulado del atacante que registra lo que le llega | [`services/`](services/README.es.md) |
 
-Por defecto, la arena no tiene ruta a internet. Las corridas con modelos reales aún no están implementadas.
+Por defecto, la arena no tiene ruta a internet. Las corridas con modelos reales no están implementadas, y los ataques en vivo están en pausa.
 
 ## Advertencia
 

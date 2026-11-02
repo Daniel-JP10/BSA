@@ -8,6 +8,8 @@ Scenario metadata, one JSON file per scenario, with no attack text. Today the on
 
 Attacks will be grouped into **families**, and a family is the unit results are reported in, so a thousand generated variants of one idea still count as one family. Variants are meant to set `generated: true`. The validator does not check this yet.
 
+Live attack runs are on hold, as explained in the [limitations](../docs/LIMITATIONS.md).
+
 ## Warning
 
 Metadata describes an attack without reproducing it. Use the structured fields, such as `vector`, `technique` and `sink`, never the sentence an attack would use. Keep payload text out of this folder, even as an example.
