@@ -9,7 +9,7 @@ Lo que BSA todavía no puede hacer y lo que quizá nunca pueda demostrar.
 - **Aún no hay ataques contra modelos reales.** La única corrida con un modelo real es una prueba pequeña del aviso a agentes. El modo con modelo real del proxy no está implementado, así que la arena sigue usando un modelo con guion.
 - **Sin resultados de ataques.** Nada aquí dice cómo se comporta un agente ante ataques.
 - **El runner aún no maneja el agente real.** El binario real solo corre en los tests de contrato. Las corridas de escenarios usan un agente simulado, y los resultados `GATED` y `BLOCKED` nunca se producen.
-- **La contención se ha puesto a prueba, pero no está demostrada.** Las comprobaciones cubren vías de escape conocidas en el [entorno registrado](RESULTS.es.md). Los contenedores comparten el kernel del host de Docker. En Docker Desktop ese host es una máquina virtual; en Linux es tu propia máquina.
+- **La contención se ha puesto a prueba, pero no está demostrada.** Las comprobaciones cubren vías de escape conocidas en el [entorno registrado](RESULTS.es.md). Los contenedores comparten el kernel del host de Docker. En Docker Desktop ese host es una máquina virtual de Linux gestionada por Docker ([R15](REFERENCES.es.md)).
 - **Solo contenedores Linux.** La arena no puede reproducir agentes que corren de forma nativa en Windows o macOS.
 - **Un solo agente.** Solo Claude Code está integrado, fijado a una versión. Su comportamiento puede cambiar en cualquier lanzamiento.
 - **Solo modo no interactivo (headless).** Como las corridas no son interactivas, nadie responde a las confirmaciones y no aparecen los diálogos de confianza de carpetas.

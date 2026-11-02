@@ -9,7 +9,7 @@ What BSA cannot do yet, and what it may never prove.
 - **No attacks against real models yet.** The only real model run is a small check of the agent notice. The proxy's mode for real models is not implemented, so the arena still uses a scripted model.
 - **No attack results.** Nothing here says how any agent performs against attacks.
 - **The runner does not drive the real agent yet.** The real binary runs only in the contract tests. Scenario runs use a scripted fake agent, and the `GATED` and `BLOCKED` outcomes are never produced.
-- **Containment has been tested, not proven.** The checks cover known escape paths on the [recorded setup](RESULTS.md). Containers share the Docker host's kernel. On Docker Desktop that host is a virtual machine; on Linux it is your machine.
+- **Containment has been tested, not proven.** The checks cover known escape paths on the [recorded setup](RESULTS.md). Containers share the Docker host's kernel. On Docker Desktop that host is a Linux virtual machine managed by Docker ([R15](REFERENCES.md)).
 - **Linux containers only.** The arena cannot reproduce agents running natively on Windows or macOS.
 - **One agent.** Only Claude Code is integrated, pinned to one version. Behaviour may change in any release.
 - **Headless only.** Runs are non-interactive, so nobody answers confirmation prompts and folder trust dialogs do not appear.

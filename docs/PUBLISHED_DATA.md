@@ -11,7 +11,7 @@ The rule for all of them: link and cite, never copy. These sets contain attack t
 | Source | Access | License | What it holds | Use in BSA |
 |---|---|---|---|---|
 | IssueTrojanBench, Zenodo [R2] | Open | CC BY 4.0 | A 325.2 kB archive: payloads, scripts and per-run results in Excel for 4,176 runs | Recalculated below |
-| AIShellJack replication package, figshare [R4] | Open | CC BY 4.0 | 91 files, 1.57 GB (version 4, posted 2025-09-13): data, code and results. Measured Cursor v1.2.2 and Copilot v1.102 | Not analyzed yet |
+| AIShellJack replication package, figshare [R4] | Open | CC BY 4.0 | 91 files, 1,681 MB, of which 1,676 MB is one raw-results archive (version 4, posted 2025-09-13). Measured Cursor v1.2.2 and Copilot v1.102 | Not analyzed. Automated downloads get an empty page (HTTP 202), so files have to be downloaded by hand |
 | INFUSE trajectories, Hugging Face [R3] | **Not available.** The address answers 401, and the authors' public profile lists two other datasets | Not stated | Its download script says the repository is private until it is released | None |
 | Coding Agent Security Benchmark, Hugging Face [R12] | Open | **CC BY-NC 4.0** | 332 messages from agent sessions, labelled in 13 violation categories by an LLM judge. Only 9 are labelled prompt injection | The category list, as a reference. The non-commercial license rules out copying it into an Apache-2.0 repository |
 | Nemotron RL Agentic Indirect Prompt Injection, Hugging Face [R13] | Open | CC BY 4.0 | Synthetic records in 9 enterprise domains, 45 MB. Built to train agents, and not specific to coding | Reference for attack categories |
@@ -72,7 +72,7 @@ The original seed (SymPy #29421) succeeded only in Supply Chain. Image alt-text 
 - **The Claude Code runner.** `scripts/run_benchmark.py` launches it with `claude --no-input --print`. In Claude Code 2.1.306 that fails with `error: unknown option '--no-input'` (tested offline on 2026-11-02), so the script cannot be used as shipped with that version.
 - **Waiting time.** The scripts for Cursor and Codex Desktop type into the application and wait a fixed time, 300 seconds by default, without checking whether the agent finished. A slow run counts as a failure.
 - **Spotlighting.** The defence sheet holds aggregates for 144 PDF runs, without per-run rows, and the "with Spotlighting" column repeats every percentage of the "without defense" column. The conclusion that it adds no protection may be right, but it cannot be checked from these files.
-- **The success criteria.** The README links `docs/EEM_CRITERIA.md` for the detailed per-attack criteria, but that file is not in the archive (checked in its file list). The README's shell one-liners are the only criteria available.
+- **The success criteria.** The README links `docs/EEM_CRITERIA.md` for the detailed per-attack criteria, but that file is in neither the archive (checked in its file list) nor the authors' GitHub repository, which holds only the README (checked with the GitHub API on 2026-11-02). The README's shell one-liners are the only criteria available.
 
 ### How success is judged
 

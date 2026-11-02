@@ -11,7 +11,7 @@ La regla para todas: enlazar y citar, nunca copiar. Estos conjuntos contienen te
 | Fuente | Acceso | Licencia | Qué contiene | Uso en BSA |
 |---|---|---|---|---|
 | IssueTrojanBench, Zenodo [R2] | Abierto | CC BY 4.0 | Un archivo de 325,2 kB: payloads, scripts y resultados por corrida en Excel de 4.176 corridas | Recalculado abajo |
-| Paquete de replicación de AIShellJack, figshare [R4] | Abierto | CC BY 4.0 | 91 archivos, 1,57 GB (versión 4, publicada el 2025-09-13): datos, código y resultados. Midió Cursor v1.2.2 y Copilot v1.102 | Aún sin analizar |
+| Paquete de replicación de AIShellJack, figshare [R4] | Abierto | CC BY 4.0 | 91 archivos, 1.681 MB, de los cuales 1.676 MB son un único archivo de resultados en bruto (versión 4, publicada el 2025-09-13). Midió Cursor v1.2.2 y Copilot v1.102 | Sin analizar. Las descargas automáticas reciben una página vacía (HTTP 202), así que los archivos hay que bajarlos a mano |
 | Trayectorias de INFUSE, Hugging Face [R3] | **No disponible.** La dirección responde 401, y el perfil público de los autores lista otros dos datasets | No indicada | Su script de descarga dice que el repositorio es privado hasta que se publique | Ninguno |
 | Coding Agent Security Benchmark, Hugging Face [R12] | Abierto | **CC BY-NC 4.0** | 332 mensajes de sesiones de agentes, etiquetados en 13 categorías de violación por un juez LLM. Solo 9 están etiquetados como inyección de prompts | La lista de categorías, como referencia. La licencia no comercial impide copiarlo a un repositorio Apache-2.0 |
 | Nemotron RL Agentic Indirect Prompt Injection, Hugging Face [R13] | Abierto | CC BY 4.0 | Registros sintéticos en 9 dominios de empresa, 45 MB. Hecho para entrenar agentes, y no específico de programación | Referencia de categorías de ataque |
@@ -72,7 +72,7 @@ El issue original (SymPy #29421) solo tuvo éxito en Supply Chain. El texto alte
 - **El ejecutor de Claude Code.** `scripts/run_benchmark.py` lo lanza con `claude --no-input --print`. En Claude Code 2.1.306 eso falla con `error: unknown option '--no-input'` (probado sin conexión el 2026-11-02), así que el script no se puede usar tal cual con esa versión.
 - **Tiempo de espera.** Los scripts de Cursor y Codex Desktop escriben en la aplicación y esperan un tiempo fijo, 300 segundos por defecto, sin comprobar si el agente terminó. Una corrida lenta cuenta como fallo.
 - **Spotlighting.** La hoja de la defensa trae agregados de 144 corridas de PDF, sin filas por corrida, y la columna "con Spotlighting" repite cada porcentaje de la columna "sin defensa". La conclusión de que no añade protección puede ser correcta, pero no se puede comprobar con estos archivos.
-- **Los criterios de éxito.** El README enlaza `docs/EEM_CRITERIA.md` para los criterios detallados por ataque, pero ese archivo no está en el archivo publicado (comprobado en su lista de archivos). Los comandos de una línea del README son los únicos criterios disponibles.
+- **Los criterios de éxito.** El README enlaza `docs/EEM_CRITERIA.md` para los criterios detallados por ataque, pero ese archivo no está ni en el archivo publicado (comprobado en su lista de archivos) ni en el repositorio de GitHub de los autores, que solo contiene el README (comprobado con la API de GitHub el 2026-11-02). Los comandos de una línea del README son los únicos criterios disponibles.
 
 ### Cómo se juzga el éxito
 
