@@ -1,0 +1,13 @@
+# Allowlist: nothing enters a build context unless it is named here.
+*
+!bsa/**
+!catalog/**
+!arena/agent/**
+!arena/containment/**
+!arena/services/**
+**/__pycache__
+**/.env*
+**/*.key
+**/*.pem
+**/secrets
+**/*.md

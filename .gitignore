@@ -1,0 +1,26 @@
+# Private working notes
+proyecto/
+
+# Secrets and local configuration
+.env
+.env.*
+*.key
+*.pem
+secrets/
+.bsa-audit-terms
+
+# Run output: transcripts of attacks are attacks
+results/
+quarantine/
+*.jsonl
+
+# Local tools
+.claude/
+.vscode/
+.idea/
+.venv/
+*.log
+
+# Python
+__pycache__/
+*.pyc
