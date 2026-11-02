@@ -13,6 +13,8 @@ Empieza aquí para ver lo que BSA ha medido, lo que supone y lo que no puede dec
 | [THREAT_MODEL.es.md](THREAT_MODEL.es.md) | Qué evalúa BSA y qué amenaza al propio BSA |
 | [LIMITATIONS.es.md](LIMITATIONS.es.md) | Qué no cubre ni demuestra BSA |
 | [RELATED_WORK.es.md](RELATED_WORK.es.md) | Benchmarks académicos y su relación con BSA |
+| [PUBLISHED_DATA.es.md](PUBLISHED_DATA.es.md) | Datos públicos sobre ataques y un recálculo de IssueTrojanBench |
+| [REFERENCES.es.md](REFERENCES.es.md) | Fuentes numeradas y qué afirmaciones dependen de ellas |
 
 Cada documento tiene una versión en inglés sin el sufijo `.es`.
 
