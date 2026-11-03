@@ -50,9 +50,9 @@ On Claude Code 2.1.306 in non-interactive mode, one line in a repository undid a
 | The same flag with a `deny` rule, or with a user-level `deny` hook | All 16 were stopped |
 | Adding `disableAllHooks: true` to the repository's settings | That user-level hook stopped working and all 16 ran again. A managed hook held |
 | `acceptEdits` mode | The agent wrote its own `CLAUDE.md` without approval. Its settings file was refused |
-| The same contracts on 11 versions, 2.1.48 to 2.1.316 | Behavior moved twice: an `ask` from a hook stopped nothing under bypass until 2.1.100, and offline, 2.1.300 and 2.1.301 started in auto mode and let a write through. A reported bypass of managed hooks did not reproduce |
+| The same contracts on 11 versions, 2.1.48 to 2.1.316 | Behavior moved twice: an `ask` from a hook stopped nothing under bypass until 2.1.100, and offline, 2.1.300 and 2.1.301 started in auto mode and let a write through. A reported bypass of managed hooks did not reproduce in headless runs |
 
-These match the product's documentation, so none of them is a new vulnerability. They are still worth knowing before you hand an agent a repository you did not write.
+The first five rows match the product's documentation, so none of them is a new vulnerability, and both version changes happened in older releases. They are still worth knowing before you hand an agent a repository you did not write.
 
 BSA also recalculated the [published IssueTrojanBench results](docs/PUBLISHED_DATA.md). Its 4,176 runs behave like 144 combinations, so an honest interval is far wider than a naive one: the 41.1% for Sonnet 4.6 spans 23.2% to 59.0%, not 37.5% to 44.8%. With the same model, three products gave the same outcome in every one of 2,088 paired runs, which backs the paper's own finding that the model decided those outcomes.
 

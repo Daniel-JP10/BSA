@@ -50,9 +50,9 @@ En Claude Code 2.1.306, en modo no interactivo, una línea en un repositorio anu
 | El mismo flag con una regla `deny` o con un hook `deny` de usuario | Se detuvieron las 16 |
 | Agregar `disableAllHooks: true` a la configuración del repositorio | Ese hook de usuario dejó de funcionar y las 16 volvieron a correr. Un hook administrado resistió |
 | Modo `acceptEdits` | El agente escribió su propio `CLAUDE.md` sin aprobación. Su archivo de configuración se rechazó |
-| Los mismos contratos en 11 versiones, de 2.1.48 a 2.1.316 | El comportamiento cambió dos veces: un `ask` de un hook no detenía nada con bypass hasta 2.1.100, y sin red, 2.1.300 y 2.1.301 arrancaron en modo auto y dejaron pasar una escritura. Un fallo reportado en los hooks administrados no se reprodujo |
+| Los mismos contratos en 11 versiones, de 2.1.48 a 2.1.316 | El comportamiento cambió dos veces: un `ask` de un hook no detenía nada con bypass hasta 2.1.100, y sin red, 2.1.300 y 2.1.301 arrancaron en modo auto y dejaron pasar una escritura. Un fallo reportado en los hooks administrados no se reprodujo en corridas no interactivas |
 
-Esto coincide con la documentación del producto, así que nada de esto es una vulnerabilidad nueva. Aun así, conviene saberlo antes de darle a un agente un repositorio que no escribiste.
+Las cinco primeras filas coinciden con la documentación del producto, así que ninguna es una vulnerabilidad nueva, y los dos cambios entre versiones ocurrieron en versiones anteriores. Aun así, conviene saberlo antes de darle a un agente un repositorio que no escribiste.
 
 BSA también recalculó los [resultados publicados de IssueTrojanBench](docs/PUBLISHED_DATA.es.md). Sus 4.176 corridas se comportan como 144 combinaciones, así que un intervalo honesto es mucho más ancho que uno ingenuo: el 41,1% de Sonnet 4.6 va de 23,2% a 59,0%, no de 37,5% a 44,8%. Con el mismo modelo, tres productos dieron el mismo resultado en cada una de las 2.088 corridas emparejadas, lo que respalda la conclusión del propio paper de que el modelo decidió esos resultados.
 
