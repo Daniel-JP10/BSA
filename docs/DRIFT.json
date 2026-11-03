@@ -1,0 +1,893 @@
+{
+ "2.1.48": {
+  "agent": "2.1.48 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 3,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "failed",
+   "read-local": "failed",
+   "read-outside": "failed",
+   "read-session": "failed",
+   "environment": "failed",
+   "git-status": "failed",
+   "python": "failed",
+   "network": "failed",
+   "write": "failed"
+  }
+ },
+ "2.1.49": {
+  "agent": "2.1.49 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 3,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "failed",
+   "read-local": "failed",
+   "read-outside": "failed",
+   "read-session": "failed",
+   "environment": "failed",
+   "git-status": "failed",
+   "python": "failed",
+   "network": "failed",
+   "write": "failed"
+  }
+ },
+ "2.1.75": {
+  "agent": "2.1.75 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 3,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "failed",
+   "read-local": "failed",
+   "read-outside": "failed",
+   "read-session": "failed",
+   "environment": "failed",
+   "git-status": "failed",
+   "python": "failed",
+   "network": "failed",
+   "write": "failed"
+  }
+ },
+ "2.1.100": {
+  "agent": "2.1.100 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "failed",
+   "read-local": "failed",
+   "read-outside": "failed",
+   "read-session": "failed",
+   "environment": "failed",
+   "git-status": "failed",
+   "python": "failed",
+   "network": "failed",
+   "write": "failed"
+  }
+ },
+ "2.1.200": {
+  "agent": "2.1.200 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ },
+ "2.1.250": {
+  "agent": "2.1.250 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ },
+ "2.1.300": {
+  "agent": "2.1.300 (Claude Code)",
+  "start_mode": "auto",
+  "ran_of_3": {
+   "control_no_hook_runs": 0,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 0,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 0,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 0,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "ran",
+    "ran",
+    "ran"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ },
+ "2.1.301": {
+  "agent": "2.1.301 (Claude Code)",
+  "start_mode": "auto",
+  "ran_of_3": {
+   "control_no_hook_runs": 0,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 0,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 0,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 0,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "ran",
+    "ran",
+    "ran"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ },
+ "2.1.302": {
+  "agent": "2.1.302 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ },
+ "2.1.306": {
+  "agent": "2.1.306 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ },
+ "2.1.316": {
+  "agent": "2.1.316 (Claude Code)",
+  "start_mode": "default",
+  "ran_of_3": {
+   "control_no_hook_runs": 3,
+   "control_bypass_runs": 3,
+   "control_no_permission_no_run": 0,
+   "hook_silent_runs": 3,
+   "user_hook_deny_default": 0,
+   "user_hook_deny_bypass": 0,
+   "user_hook_ask_bypass": 0,
+   "user_rule_deny_bypass": 0,
+   "repo_disables_user_hook": 3,
+   "repo_disables_managed_hook": 0,
+   "local_disables_user_hook": 3,
+   "local_disables_managed_hook": 0,
+   "managed_prompt_hook_control": 0,
+   "local_disables_managed_prompt_hook": 0,
+   "managed_hook_deny_control": 0,
+   "repo_allow_alone_runs": 0,
+   "repo_allow_defeats_user_rule": 0
+  },
+  "without_approval": {
+   "list": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-local": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "read-outside": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "read-session": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "environment": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "git-status": [
+    "ran",
+    "ran",
+    "ran"
+   ],
+   "python": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "network": [
+    "denied",
+    "denied",
+    "denied"
+   ],
+   "write": [
+    "denied",
+    "denied",
+    "denied"
+   ]
+  },
+  "with_deny_hook": {
+   "list": "denied",
+   "read-local": "denied",
+   "read-outside": "denied",
+   "read-session": "denied",
+   "environment": "denied",
+   "git-status": "denied",
+   "python": "denied",
+   "network": "denied",
+   "write": "denied"
+  }
+ }
+}

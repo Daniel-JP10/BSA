@@ -33,7 +33,11 @@
     "repo_disables_managed_hook": false,
     "managed_hook_deny_control": false,
     "repo_allow_alone_runs": false,
-    "repo_allow_defeats_user_rule": false
+    "repo_allow_defeats_user_rule": false,
+    "local_disables_managed_hook": false,
+    "local_disables_user_hook": true,
+    "managed_prompt_hook_control": false,
+    "local_disables_managed_prompt_hook": false
   },
   "without_approval": {
     "list": "ran",
