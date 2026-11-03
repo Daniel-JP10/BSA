@@ -2,7 +2,11 @@ import copy
 import json
 import struct
 import sys
+import threading
 import unittest
+import urllib.error
+import urllib.request
+from http.server import ThreadingHTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -112,6 +116,20 @@ class Proxy(unittest.TestCase):
         payload = {"tools": [{"name": "Read"}, {"type": "web_search_20250305", "name": "web_search"}]}
         llm_proxy.strip_server_tools(payload)
         self.assertEqual(payload["tools"], [{"name": "Read"}])
+
+
+class ProxyRefusal(unittest.TestCase):
+    def test_refused_route_with_a_body_still_gets_its_status(self):
+        server = ThreadingHTTPServer(("127.0.0.1", 0), llm_proxy.Handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        try:
+            request = urllib.request.Request(f"http://127.0.0.1:{server.server_port}/admin", data=b"x" * 1_000_000)
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                urllib.request.urlopen(request, timeout=10)
+            self.assertEqual(caught.exception.code, 403)
+        finally:
+            server.shutdown()
+            server.server_close()
 
 
 class FakeModel(unittest.TestCase):

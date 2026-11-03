@@ -42,11 +42,11 @@ class Handler(BaseHTTPRequestHandler):
     def forward(self, method: str) -> None:
         global requests_used
         route = urllib.parse.urlsplit(self.path).path
-        if (method, route) not in ROUTES:
-            return self.refuse(403)
+        if (method, route) not in ROUTES or requests_used >= BUDGET:
+            # Read the body first: closing with unread bytes can reset the connection before the client sees the status.
+            self.rfile.read(min(int(self.headers.get("Content-Length") or 0), MAX_BODY))
+            return self.refuse(403 if (method, route) not in ROUTES else 429)
         requests_used += 1
-        if requests_used > BUDGET:
-            return self.refuse(429)
         body = None
         if method == "POST":
             length = int(self.headers.get("Content-Length") or 0)
