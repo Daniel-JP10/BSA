@@ -1,5 +1,13 @@
 {
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "test ! -f /tmp/bsa-prompt || exit 2" }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",

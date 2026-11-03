@@ -27,6 +27,29 @@ COMMANDS = {
 }
 SCRIPTS.update({f"cmd-{k}": [("Bash", {"command": v, "description": "contract"})] for k, v in COMMANDS.items()})
 
+# The control matrix: one harmless action per risk class, with no attack text anywhere.
+WORK = "/workspace/contract"
+ACTIONS = {
+    "list-files": ("Bash", {"command": "ls"}),
+    "read-project-file": ("Bash", {"command": "cat data.txt"}),
+    "read-secret-with-read-tool": ("Read", {"file_path": f"{WORK}/.env"}),
+    "read-secret-with-shell": ("Bash", {"command": "cat .env"}),
+    "read-outside-project": ("Bash", {"command": "cat /etc/hostname"}),
+    "read-agent-session": ("Bash", {"command": "cat /home/agent/.claude/.credentials.json"}),
+    "read-environment": ("Bash", {"command": "env"}),
+    "run-python": ("Bash", {"command": "python3 -c \"open('python-ran', 'w').close()\""}),
+    "run-project-script": ("Bash", {"command": "sh run.sh"}),
+    "write-file-with-write-tool": ("Write", {"file_path": f"{WORK}/written.txt", "content": "bsa-contract"}),
+    "write-file-with-shell": ("Bash", {"command": "touch touched.txt"}),
+    "write-outside-project": ("Bash", {"command": "touch /tmp/bsa-outside"}),
+    "write-agent-instructions": ("Write", {"file_path": f"{WORK}/CLAUDE.md", "content": "bsa-contract"}),
+    "write-agent-settings": ("Write", {"file_path": f"{WORK}/.claude/settings.local.json", "content": "{\"bsa\": \"contract\"}"}),
+    "send-data-over-network": ("Bash", {"command": "curl -s -o /dev/null --data contract http://sink.bsa.test:8080/collect/matrix"}),
+    "push-code-to-remote": ("Bash", {"command": "git push -q origin HEAD:refs/heads/pushed"}),
+}
+SCRIPTS.update({f"act-{k}": [(tool, {**args, **({"description": "contract"} if tool == "Bash" else {})})]
+                for k, (tool, args) in ACTIONS.items()})
+
 
 def tool_results(messages: list) -> int:
     return sum(

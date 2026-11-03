@@ -13,8 +13,11 @@ x-hardened: &hardened
 services:
   agent:
     <<: *hardened
-    image: bsa/agent:local
-    build: { context: .., dockerfile: arena/agent/Dockerfile }
+    image: bsa/agent:${BSA_AGENT_VERSION:-2.1.306}
+    build:
+      context: ..
+      dockerfile: arena/agent/Dockerfile
+      args: { AGENT_VERSION: "${BSA_AGENT_VERSION:-2.1.306}" }
     command: ["sleep", "3600"]
     user: "10001:10001"
     pids_limit: 256
@@ -35,6 +38,8 @@ services:
     image: bsa/services:local
     build: { context: .., dockerfile: arena/services/Dockerfile }
     command: ["python", "llm_proxy.py"]
+    environment:
+      BSA_MAX_REQUESTS: ${BSA_MAX_REQUESTS:-200}
     pids_limit: 64
     mem_limit: 128m
     cpus: 0.5

@@ -6,14 +6,15 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path[:0] = [str(ROOT), str(ROOT / "scripts"), str(ROOT / "arena" / "services")]
+sys.path[:0] = [str(ROOT), str(ROOT / "scripts"), str(ROOT / "arena" / "services"), str(ROOT / "arena" / "containment")]
 
 import exposure_audit  # noqa: E402
 import fake_llm  # noqa: E402
 import llm_proxy  # noqa: E402
+import matrix  # noqa: E402
 from bsa import catalog, runner  # noqa: E402
 from bsa.observers import Evidence, classify  # noqa: E402
-from bsa.stats import wilson  # noqa: E402
+from bsa.stats import clustered_mean, wilson  # noqa: E402
 
 SMOKE = json.loads((ROOT / "catalog" / "BSA-SMOKE-0001.json").read_text(encoding="utf-8"))
 
@@ -28,6 +29,20 @@ class Stats(unittest.TestCase):
         for args in ((1, 0), (5, 4), (-1, 4)):
             with self.assertRaises(ValueError):
                 wilson(*args)
+
+
+class ClusteredMean(unittest.TestCase):
+    def test_tied_scores_widen_the_error(self):
+        self.assertAlmostEqual(clustered_mean([[1], [1], [0], [0]])["se"], 0.25)
+        self.assertAlmostEqual(clustered_mean([[1, 1], [0, 0]])["se"], 2 ** 0.5 / 4)
+
+    def test_bounds_stay_between_zero_and_one(self):
+        result = clustered_mean([[1, 1], [0, 0]])
+        self.assertEqual((result["low"], result["high"], result["clusters"]), (0.0, 1.0, 2))
+
+    def test_no_scores_is_refused(self):
+        with self.assertRaises(ValueError):
+            clustered_mean([])
 
 
 class Observers(unittest.TestCase):
@@ -116,6 +131,14 @@ class FakeModel(unittest.TestCase):
 
     def test_background_requests_get_text(self):
         self.assertEqual(fake_llm.next_blocks({"messages": []}, "bash-side")[1], "end_turn")
+
+    def test_every_matrix_action_has_a_script(self):
+        self.assertEqual(set(fake_llm.ACTIONS), set(matrix.ACTIONS))
+        self.assertTrue(all(f"act-{a}" in fake_llm.SCRIPTS for a in matrix.ACTIONS))
+
+    def test_matrix_keeps_its_controls(self):
+        self.assertIn("default", matrix.PROFILES)
+        self.assertIn("bypass", matrix.PROFILES)
 
 
 class Audit(unittest.TestCase):

@@ -1,10 +1,11 @@
 # The contained machine. It deliberately has curl, git and python: containment must
 # hold when the agent has real tools, not because the tools are missing.
 FROM node:24-bookworm-slim@sha256:c86ecead9e55a5210ac1727de38a4ca840bf03dcaf34dc9749addbf383b1920c
+ARG AGENT_VERSION=2.1.306
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3 curl git ca-certificates \
  && rm -rf /var/lib/apt/lists/* \
- && npm install -g @anthropic-ai/claude-code@2.1.306 \
+ && npm install -g @anthropic-ai/claude-code@${AGENT_VERSION} \
  && npm cache clean --force \
  && useradd --uid 10001 --create-home --home-dir /home/agent agent
 COPY bsa /opt/bsa/bsa
