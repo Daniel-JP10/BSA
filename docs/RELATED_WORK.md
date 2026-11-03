@@ -34,7 +34,7 @@ Reviewed in November 2026. How much of each source was read is listed in [REFERE
 
 From these works BSA takes deterministic checks instead of LLM judges (AgentDojo), containers with simulated destinations (INFUSE), verdicts based on files and other effects (IssueTrojanBench), and the idea of organizing attacks into families.
 
-It does not repeat them. Those benchmarks fool a real model and count how often it obeys, which measures the model first. BSA replaces the model with a script that asks for the risky action, as a model that has already been fooled would, and measures what the product's controls do next. That needs no attack text and no account, and it gives the same answer on every run.
+It does not repeat them. Those benchmarks measure how often a real model is fooled, which is the question they set out to answer. BSA asks the next one: it replaces the model with a script that asks for the risky action, as a model that has already been fooled would, and measures what the product's controls do next. That needs no attack text and no account, and it gives the same answer on every run.
 
 ## The gap BSA aims at
 

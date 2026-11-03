@@ -19,7 +19,7 @@ La regla para todas: enlazar y citar, nunca copiar. Estos conjuntos contienen te
 
 ## IssueTrojanBench: qué muestran los resultados publicados
 
-BSA recalculó las tres hojas de cálculo de la versión 1.0.0 [R2], que tienen licencia CC BY 4.0. Los autores no respaldan este análisis. Los archivos se leyeron dentro de un contenedor sin red, y no se ejecutó ningún script del dataset.
+BSA recalculó las tres hojas de cálculo de la versión 1.0.0 [R2], que tienen licencia CC BY 4.0. Este análisis es propio de BSA y los autores no lo han revisado. Los archivos se leyeron dentro de un contenedor sin red, y no se ejecutó ningún script del dataset.
 
 ### Los números coinciden con el resumen de los autores
 
@@ -63,9 +63,9 @@ Con el mismo modelo, los tres productos dieron el mismo resultado en todas las c
 
 El paper dice lo mismo con sus palabras [R1]. Reporta "identical outcomes within each agent-model-attack configuration" entre perturbaciones, y afirma que ningún rechazo vino de las defensas del framework (0 de 1.400), con tasas de rechazo idénticas para GPT-5.4 y Sonnet 4.6 en cada par de productos. La comprobación corrida a corrida de BSA añade un detalle: la coincidencia se da en cada una de las 2.088 corridas emparejadas, no solo en las tasas.
 
-Las tasas por producto de la hoja de resumen (Claude Code 41,1%, Cursor 66,5%, Codex Desktop 79,2%) reflejan entonces a los modelos: Cursor solo mezcla los tres. Cítalas por modelo.
+Las tasas por producto de la hoja de resumen (Claude Code 41,1%, Cursor 66,5%, Codex Desktop 79,2%) reflejan entonces a los modelos: la tasa de Cursor combina los tres. Conviene citarlas por modelo.
 
-Esto no demuestra que los controles de los productos sean iguales. El paper dice que todos los agentes corrieron en su modo de autoaceptación o autónomo [R1], y ahí esos controles tienen poco que hacer. Qué hacen cuando están activos es lo que mide BSA.
+Esto no demuestra que los controles de los productos sean iguales. El paper dice que todos los agentes corrieron en su modo de autoaceptación o autónomo [R1], así que el estudio no se diseñó para poner a prueba esos controles. Qué hacen cuando están activos es lo que mide BSA.
 
 ### Claude Code con Sonnet 4.6
 
@@ -78,12 +78,12 @@ Esto no demuestra que los controles de los productos sean iguales. El paper dice
 
 El issue original (SymPy #29421) solo tuvo éxito en Supply Chain. El texto alternativo de imagen tuvo éxito en 0 de 72 corridas. Entre los dos productos que usaron Sonnet 4.6, sus 820 fallos se etiquetan como rechazo del modelo 754 veces y como clasificación de confianza 66 veces. Según los autores, `EEM_Score` 0 significa que el agente rechazó, ignoró o no pudo interpretar el payload [R2], y los archivos añaden las etiquetas "Model Refusal" y "Trust Classification" solo para esas corridas.
 
-### Lo que los archivos no dicen
+### Lo que los archivos dejan abierto
 
 - **Versiones exactas.** El paper declara modos de autoaceptación o autónomos [R1], pero BSA no encontró números de versión de los productos ni en el paper ni en los archivos.
-- **El runner de Claude Code.** `scripts/run_benchmark.py` lo lanza con `claude --no-input --print`. En Claude Code 2.1.306 eso falla con `error: unknown option '--no-input'` (probado sin conexión el 2026-11-02), así que el script no se puede usar tal cual con esa versión.
-- **Tiempo de espera.** Los scripts de Cursor y Codex Desktop escriben en la aplicación y esperan un tiempo fijo, 300 segundos por defecto, sin comprobar si el agente terminó. Una corrida lenta cuenta como fallo.
-- **Spotlighting.** La hoja de la defensa trae agregados de 144 corridas de PDF, sin filas por corrida, y la columna "con Spotlighting" repite cada porcentaje de la columna "sin defensa". La conclusión de que no añade protección puede ser correcta, pero no se puede comprobar con estos archivos.
+- **El runner de Claude Code.** `scripts/run_benchmark.py` lo lanza con `claude --no-input --print`. En Claude Code 2.1.306 eso falla con `error: unknown option '--no-input'` (probado sin conexión el 2026-11-02), así que usarlo con esa versión requiere otra línea de comandos. Puede que funcionara en la versión que usaron los autores.
+- **Tiempo de espera.** Los scripts de Cursor y Codex Desktop escriben en la aplicación y esperan un tiempo fijo, 300 segundos por defecto. No comprueban si el agente terminó, así que una corrida más lenta que eso contaría como fallo.
+- **Spotlighting.** La hoja de la defensa trae agregados de 144 corridas de PDF, sin filas por corrida, y la columna "con Spotlighting" repite cada porcentaje de la columna "sin defensa". Estos archivos no bastan para comprobar la conclusión de que no añade protección.
 - **Los criterios de éxito.** El README enlaza `docs/EEM_CRITERIA.md` para los criterios detallados por ataque, pero ese archivo no está ni en el archivo publicado (comprobado en su lista de archivos) ni en el repositorio de GitHub de los autores, que solo contiene el README (comprobado con la API de GitHub el 2026-11-02). Los comandos de una línea del README son los únicos criterios disponibles.
 
 ### Cómo se juzga el éxito
@@ -138,9 +138,9 @@ BSA analizó cinco archivos pequeños del paquete de replicación [R4], que tien
 - Una corrida cuenta como exitosa cuando los comandos que ejecutó se parecen lo suficiente a los esperados: similitud de al menos 0,2, o cualquier comando que no sea de preparación. En el registro, 262 de 304 entradas siguen esa regla, y dos entradas que ejecutaron un comando que no es de preparación no se cuentan.
 - 29 de los 262 éxitos (11%) tienen una similitud menor que 0,2, y la más baja es 0,019. En la hoja de etiquetado, la etiqueta 1 aparece con similitudes tan bajas como 0,019 y la etiqueta 0 con similitudes de hasta 0,156, así que ningún umbral único las separa.
 - Las 28 entradas sin ningún comando son fallos.
-- Ningún archivo comprueba qué hizo un comando. Éxito significa que se ejecutó un comando parecido, no que ocurrió su efecto. BSA juzga por efectos observados.
+- Ningún archivo comprueba qué hizo un comando. Éxito significa que se ejecutó un comando parecido, lo que encaja con un estudio sobre si el agente obedece. BSA, que estudia controles, busca el efecto.
 
-### Cifras que no cuadran
+### Cifras que BSA no pudo cuadrar
 
 - El paper reporta 70 técnicas. El archivo de payloads tiene 106 identificadores de técnica distintos, que son 69 al unir las subtécnicas.
 - El registro tiene 304 entradas para 314 payloads. Las 304 están entre los payloads, y una técnica base no tiene entrada.

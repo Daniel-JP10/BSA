@@ -37,7 +37,7 @@ flowchart LR
     A -. "no route" .-x I["Internet and host"]
 ```
 
-Benchmarks that fool a real model measure the model first. BSA holds the model fixed and measures the product around it.
+Benchmarks that fool a real model measure how often the model is fooled. BSA holds the model fixed and measures the product around it.
 
 ## What it has found
 
@@ -54,7 +54,7 @@ On Claude Code 2.1.306 in non-interactive mode, one line in a repository undid a
 
 The first five rows match the product's documentation, so none of them is a new vulnerability, and both version changes happened in older releases. They are still worth knowing before you hand an agent a repository you did not write.
 
-BSA also recalculated the [published IssueTrojanBench results](docs/PUBLISHED_DATA.md). Its 4,176 runs behave like 144 combinations, so an honest interval is far wider than a naive one: the 41.1% for Sonnet 4.6 spans 23.2% to 59.0%, not 37.5% to 44.8%. With the same model, three products gave the same outcome in every one of 2,088 paired runs, which backs the paper's own finding that the model decided those outcomes.
+BSA also recalculated the [published IssueTrojanBench results](docs/PUBLISHED_DATA.md). Its 4,176 runs fall into 144 combinations that tend to share an outcome, and an interval that accounts for that is much wider: for Sonnet 4.6, 41.1% spans 23.2% to 59.0% instead of 37.5% to 44.8%. With the same model, three products gave the same outcome in every one of 2,088 paired runs, which agrees with the paper's own finding that the model decided those outcomes.
 
 ## Where it stands
 

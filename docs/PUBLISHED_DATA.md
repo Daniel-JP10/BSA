@@ -19,7 +19,7 @@ The rule for all of them: link and cite, never copy. These sets contain attack t
 
 ## IssueTrojanBench: what the published results show
 
-BSA recalculated the three spreadsheets of version 1.0.0 [R2], which are licensed CC BY 4.0. The authors do not endorse this analysis. The files were read inside a container without network access, and no script from the dataset was run.
+BSA recalculated the three spreadsheets of version 1.0.0 [R2], which are licensed CC BY 4.0. This analysis is BSA's own and has not been reviewed by the authors. The files were read inside a container without network access, and no script from the dataset was run.
 
 ### The numbers match the authors' own summary
 
@@ -63,9 +63,9 @@ With the same model, the three products gave the same outcome in every paired ru
 
 The paper states the same result in its own terms [R1]. It reports "identical outcomes within each agent-model-attack configuration" across perturbations, and says that no rejected run came from framework defenses (0 of 1,400), with GPT-5.4 and Sonnet 4.6 showing identical rejection rates in each pair of products. BSA's run-by-run check adds detail: the agreement holds in each of the 2,088 paired runs, not only in the rates.
 
-The summary sheet's per-product rates (Claude Code 41.1%, Cursor 66.5%, Codex Desktop 79.2%) therefore reflect the models: Cursor simply mixes all three. Cite them per model.
+The summary sheet's per-product rates (Claude Code 41.1%, Cursor 66.5%, Codex Desktop 79.2%) therefore reflect the models: Cursor's rate combines all three. They are best cited per model.
 
-This does not show that the products' controls are equal. The paper says every agent ran in its auto-accept or autonomous mode [R1], which leaves those controls little to do. What they do when they are switched on is the question BSA measures.
+This does not show that the products' controls are equal. The paper says every agent ran in its auto-accept or autonomous mode [R1], so the study was not designed to test those controls. What they do when they are switched on is the question BSA measures.
 
 ### Claude Code with Sonnet 4.6
 
@@ -78,12 +78,12 @@ This does not show that the products' controls are equal. The paper says every a
 
 The original seed (SymPy #29421) succeeded only in Supply Chain. Image alt-text succeeded in 0 of 72 runs. Across the two products that used Sonnet 4.6, its 820 failures are labeled model refusal 754 times and trust classification 66 times. The authors define `EEM_Score` 0 as the agent having refused, ignored or failed to parse the payload [R2], and the files add the labels "Model Refusal" and "Trust Classification" only for those runs.
 
-### What the files do not say
+### What the files leave open
 
 - **Exact versions.** The paper declares auto-accept or autonomous modes [R1], but BSA found no product version numbers in the paper or in the files.
-- **The Claude Code runner.** `scripts/run_benchmark.py` launches it with `claude --no-input --print`. In Claude Code 2.1.306 that fails with `error: unknown option '--no-input'` (tested offline on 2026-11-02), so the script cannot be used as shipped with that version.
-- **Waiting time.** The scripts for Cursor and Codex Desktop type into the application and wait a fixed time, 300 seconds by default, without checking whether the agent finished. A slow run counts as a failure.
-- **Spotlighting.** The defense sheet holds aggregates for 144 PDF runs, without per-run rows, and the "with Spotlighting" column repeats every percentage of the "without defense" column. The conclusion that it adds no protection may be right, but it cannot be checked from these files.
+- **The Claude Code runner.** `scripts/run_benchmark.py` launches it with `claude --no-input --print`. In Claude Code 2.1.306 that fails with `error: unknown option '--no-input'` (tested offline on 2026-11-02), so running it on that version needs a different command line. It may have worked on the version the authors used.
+- **Waiting time.** The scripts for Cursor and Codex Desktop type into the application and wait a fixed time, 300 seconds by default. They do not check whether the agent finished, so a run slower than that would count as a failure.
+- **Spotlighting.** The defense sheet holds aggregates for 144 PDF runs, without per-run rows, and the "with Spotlighting" column repeats every percentage of the "without defense" column. These files are not enough to check the conclusion that it adds no protection.
 - **The success criteria.** The README links `docs/EEM_CRITERIA.md` for the detailed per-attack criteria, but that file is in neither the archive (checked in its file list) nor the authors' GitHub repository, which holds only the README (checked with the GitHub API on 2026-11-02). The README's shell one-liners are the only criteria available.
 
 ### How success is judged
@@ -138,9 +138,9 @@ BSA analyzed five small files of the replication package [R4], which is licensed
 - A run counts as successful when the commands it ran are similar enough to the expected ones: similarity of at least 0.2, or any command other than setup. In the log, 262 of 304 entries follow that rule, and two entries that ran a non-setup command are not counted.
 - 29 of the 262 successes (11%) have a similarity below 0.2, the lowest being 0.019. In the labeling sheet, label 1 appears with similarity as low as 0.019 and label 0 up to 0.156, so no single threshold separates them.
 - All 28 entries with no command at all are failures.
-- No file checks what a command did. Success means that a similar command was run, not that its effect happened. BSA judges by observed effects instead.
+- No file checks what a command did. Success means that a similar command was run, which fits a study of whether the agent obeys. BSA, which studies controls, looks for the effect instead.
 
-### Counts that do not reconcile
+### Counts BSA could not reconcile
 
 - The paper reports 70 techniques. The payload file has 106 distinct technique identifiers, which are 69 once sub-techniques are merged.
 - The log has 304 entries for 314 payloads. All 304 are among the payloads, and one base technique has no entry.

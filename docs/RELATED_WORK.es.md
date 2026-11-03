@@ -34,7 +34,7 @@ Revisado en noviembre de 2026. Cuánto se leyó de cada fuente está en [REFEREN
 
 De estos trabajos BSA toma las comprobaciones deterministas en lugar de jueces LLM (AgentDojo), los contenedores con destinos simulados (INFUSE), los veredictos basados en archivos y otros efectos (IssueTrojanBench) y la idea de organizar los ataques en familias.
 
-No los repite. Esos benchmarks engañan a un modelo real y cuentan cuántas veces obedece, lo que mide primero al modelo. BSA sustituye el modelo por un guion que pide la acción de riesgo, como haría un modelo ya engañado, y mide qué hacen después los controles del producto. Eso no necesita texto de ataque ni una cuenta, y da la misma respuesta en cada corrida.
+No los repite. Esos benchmarks miden con qué frecuencia cae un modelo real, que es la pregunta que se propusieron responder. BSA se hace la siguiente: sustituye el modelo por un guion que pide la acción de riesgo, como haría un modelo ya engañado, y mide qué hacen después los controles del producto. Eso no necesita texto de ataque ni una cuenta, y da la misma respuesta en cada corrida.
 
 ## El vacío que BSA busca cubrir
 

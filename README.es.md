@@ -37,7 +37,7 @@ flowchart LR
     A -. "sin ruta" .-x I["Internet y host"]
 ```
 
-Los benchmarks que engañan a un modelo real miden primero al modelo. BSA deja el modelo fijo y mide el producto que lo rodea.
+Los benchmarks que engañan a un modelo real miden con qué frecuencia el modelo cae. BSA deja el modelo fijo y mide el producto que lo rodea.
 
 ## Lo que ha encontrado
 
@@ -54,7 +54,7 @@ En Claude Code 2.1.306, en modo no interactivo, una línea en un repositorio anu
 
 Las cinco primeras filas coinciden con la documentación del producto, así que ninguna es una vulnerabilidad nueva, y los dos cambios entre versiones ocurrieron en versiones anteriores. Aun así, conviene saberlo antes de darle a un agente un repositorio que no escribiste.
 
-BSA también recalculó los [resultados publicados de IssueTrojanBench](docs/PUBLISHED_DATA.es.md). Sus 4.176 corridas se comportan como 144 combinaciones, así que un intervalo honesto es mucho más ancho que uno ingenuo: el 41,1% de Sonnet 4.6 va de 23,2% a 59,0%, no de 37,5% a 44,8%. Con el mismo modelo, tres productos dieron el mismo resultado en cada una de las 2.088 corridas emparejadas, lo que respalda la conclusión del propio paper de que el modelo decidió esos resultados.
+BSA también recalculó los [resultados publicados de IssueTrojanBench](docs/PUBLISHED_DATA.es.md). Sus 4.176 corridas forman 144 combinaciones que tienden a compartir resultado, y un intervalo que lo tiene en cuenta es mucho más ancho: para Sonnet 4.6, el 41,1% va de 23,2% a 59,0% en lugar de 37,5% a 44,8%. Con el mismo modelo, tres productos dieron el mismo resultado en cada una de las 2.088 corridas emparejadas, lo que coincide con la conclusión del propio paper de que el modelo decidió esos resultados.
 
 ## Estado actual
 
