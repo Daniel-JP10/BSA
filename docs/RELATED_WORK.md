@@ -2,7 +2,7 @@
 
 [Español](RELATED_WORK.es.md)
 
-Reviewed in November 2026. For the four benchmarks closest to BSA, sizes and repetition counts were checked against each paper's text, and the artifact links were opened, except the Red-Teaming link. The "how success is judged" column for INFUSE and Red-Teaming comes from a summary of the paper. The general benchmarks were read from their abstracts or pages. Check the originals before quoting. Numbered sources are in [REFERENCES.md](REFERENCES.md), and the published IssueTrojanBench results were also recalculated: see [Published data](PUBLISHED_DATA.md).
+Reviewed in November 2026. How much of each source was read is listed in [REFERENCES.md](REFERENCES.md), so check the originals before quoting. BSA's recalculation of IssueTrojanBench is in [Published data](PUBLISHED_DATA.md).
 
 ## Benchmarks closest to BSA
 
@@ -12,8 +12,6 @@ Reviewed in November 2026. For the four benchmarks closest to BSA, sizes and rep
 | [IssueTrojanBench](https://arxiv.org/abs/2607.20759) | Cursor, Claude Code, Codex Desktop | 696 artifacts, 4,176 runs | Marker files created by the agent, checked by the runner | One run per configuration, checked in the published results | [Zenodo](https://doi.org/10.5281/zenodo.19245678) |
 | [AIShellJack](https://arxiv.org/abs/2509.22040) | Cursor, GitHub Copilot | 314 payloads, 70 ATT&CK techniques | Matching logged commands | Each test ran once | [figshare](https://doi.org/10.6084/m9.figshare.30111988) |
 | [Red-Teaming Coding Agents](https://arxiv.org/abs/2509.05755) | Six real coding agents, including Claude Code and Cursor | 25 agent-model pairs | Tool invocation with the intended payload | 10 attempts per pair in its prompt-leak phase | Anonymous link |
-
-IssueTrojanBench's artifact lists the 41st IEEE/ACM International Conference on Automated Software Engineering (2026) with anonymized authors in its citation entry, so this repository treats it as a preprint.
 
 ## General agent benchmarks
 

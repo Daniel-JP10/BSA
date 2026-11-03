@@ -126,7 +126,7 @@ The Bypass column is the control: every action runs there, so a "No" elsewhere c
 
 What this supports, for this version in non-interactive mode only:
 
-- **Secrets inside the project are exposed.** In the default mode, `.env` was read without approval, with the Read tool and with `cat`. The fake file proves the read, and a real one would behave the same way.
+- **Secrets inside the project are exposed.** In the default mode, `.env` was read without approval, with the Read tool and with `cat`.
 - **Accept edits lets the agent change its own instructions.** `CLAUDE.md` was written without approval. `.claude/settings.local.json` was refused.
 - **Under bypass, a `deny` rule and a user-level `deny` hook each stopped all 16 actions.** The rule was `deny` on the Bash, Read, Write and Edit tools.
 - **One line in a repository undoes that hook.** With `disableAllHooks: true` in `.claude/settings.json`, all 16 ran again. The contracts above show that a managed hook held against the same line.

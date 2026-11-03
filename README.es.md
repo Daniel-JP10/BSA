@@ -106,6 +106,11 @@ Nada de esto necesita texto de ataque. Si agregas ataques reales, lee antes las 
 
 ## Para personas
 
+```sh
+git clone https://github.com/Daniel-JP10/BSA.git
+cd BSA
+```
+
 Necesitas:
 
 - Docker con Compose v2 y contenedores Linux, con unos 2 GB libres para las imágenes.

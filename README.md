@@ -106,6 +106,11 @@ Nothing in those steps needs attack text. If you add real attacks, read the [war
 
 ## For humans
 
+```sh
+git clone https://github.com/Daniel-JP10/BSA.git
+cd BSA
+```
+
 You need:
 
 - Docker with Compose v2 and Linux containers, with about 2 GB free for images.

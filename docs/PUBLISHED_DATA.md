@@ -12,12 +12,10 @@ The rule for all of them: link and cite, never copy. These sets contain attack t
 |---|---|---|---|---|
 | IssueTrojanBench, Zenodo [R2] | Open | CC BY 4.0 | A 325.2 kB archive: payloads, scripts and per-run results in Excel for 4,176 runs | Recalculated below |
 | AIShellJack replication package, figshare [R4] | Open | CC BY 4.0 | 91 files, 1,681 MB, of which 1,676 MB is one raw-results archive (version 4, posted 2025-09-13). Measured Cursor v1.2.2 and Copilot v1.102 | Five small files analyzed below. Automated downloads get an empty page (HTTP 202), so they were downloaded by hand |
-| INFUSE trajectories, Hugging Face [R3] | **Not available.** The address answers 401, and the authors' public profile lists two other datasets | Not stated | Its download script says the repository is private until it is released | None |
+| INFUSE trajectories, Hugging Face [R3] | **Not available.** The address answers 401 | Not stated | Its download script says the repository is private until it is released | None |
 | Coding Agent Security Benchmark, Hugging Face [R12] | Open | **CC BY-NC 4.0** | 332 messages from agent sessions, labeled in 13 violation categories by an LLM judge. Only 9 are labeled prompt injection | The category list, as a reference. The non-commercial license rules out copying it into an Apache-2.0 repository |
 | Nemotron RL Agentic Indirect Prompt Injection, Hugging Face [R13] | Open | CC BY 4.0 | Synthetic records in 9 enterprise domains, 45 MB. Built to train agents, and not specific to coding | Reference for attack categories |
 | ClawTrojan, Hugging Face [R14] | Open | "other": its card says the terms are not specified and asks users to confirm permitted use before redistributing | 362 trajectory-level samples and 1,676 step environments | None until the terms are clear |
-
-A full-text search for "prompt injection agent" on Hugging Face returns more than 36,000 matches, and most are unrelated training collections. Names can also mislead: searching for "infuse" finds datasets from an unrelated project.
 
 ## IssueTrojanBench: what the published results show
 
@@ -121,7 +119,7 @@ The script checks its MD5 against the one Zenodo lists for version 1.0.0 (`3e335
 
 ### Limits of this recalculation
 
-- The numbers come from the authors' spreadsheets. The paper was read in HTML, and the statements quoted here agree with them.
+- The numbers come from the authors' spreadsheets.
 - The archive was downloaded again through Zenodo's API on 2026-11-02. Its MD5 matches the one listed on the Zenodo record, and its SHA-256 is `be705afb3f4dbffc806e476d00a6ca64c3f00783435ccc70945594276a17383b`. The script above reproduces every number on this page from it.
 - No payload text was read.
 

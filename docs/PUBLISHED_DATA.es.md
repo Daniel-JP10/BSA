@@ -12,12 +12,10 @@ La regla para todas: enlazar y citar, nunca copiar. Estos conjuntos contienen te
 |---|---|---|---|---|
 | IssueTrojanBench, Zenodo [R2] | Abierto | CC BY 4.0 | Un archivo de 325,2 kB: payloads, scripts y resultados por corrida en Excel de 4.176 corridas | Recalculado abajo |
 | Paquete de replicación de AIShellJack, figshare [R4] | Abierto | CC BY 4.0 | 91 archivos, 1.681 MB, de los cuales 1.676 MB son un único archivo de resultados en bruto (versión 4, publicada el 2025-09-13). Midió Cursor v1.2.2 y Copilot v1.102 | Cinco archivos pequeños analizados abajo. Las descargas automáticas reciben una página vacía (HTTP 202), así que se bajaron a mano |
-| Trayectorias de INFUSE, Hugging Face [R3] | **No disponible.** La dirección responde 401, y el perfil público de los autores lista otros dos datasets | No indicada | Su script de descarga dice que el repositorio es privado hasta que se publique | Ninguno |
+| Trayectorias de INFUSE, Hugging Face [R3] | **No disponible.** La dirección responde 401 | No indicada | Su script de descarga dice que el repositorio es privado hasta que se publique | Ninguno |
 | Coding Agent Security Benchmark, Hugging Face [R12] | Abierto | **CC BY-NC 4.0** | 332 mensajes de sesiones de agentes, etiquetados en 13 categorías de violación por un juez LLM. Solo 9 están etiquetados como inyección de prompts | La lista de categorías, como referencia. La licencia no comercial impide copiarlo a un repositorio Apache-2.0 |
 | Nemotron RL Agentic Indirect Prompt Injection, Hugging Face [R13] | Abierto | CC BY 4.0 | Registros sintéticos en 9 dominios de empresa, 45 MB. Hecho para entrenar agentes, y no específico de programación | Referencia de categorías de ataque |
 | ClawTrojan, Hugging Face [R14] | Abierto | "other": su ficha dice que los términos no están especificados y pide confirmar el uso permitido antes de redistribuir | 362 muestras por trayectoria y 1.676 entornos de pasos | Ninguno hasta que los términos estén claros |
-
-Una búsqueda de texto completo de "prompt injection agent" en Hugging Face devuelve más de 36.000 coincidencias, y la mayoría son colecciones de entrenamiento sin relación. Los nombres también engañan: al buscar "infuse" aparecen datasets de otro proyecto.
 
 ## IssueTrojanBench: qué muestran los resultados publicados
 
@@ -121,7 +119,7 @@ El script comprueba su MD5 contra el que Zenodo lista para la versión 1.0.0 (`3
 
 ### Límites de este recálculo
 
-- Los números salen de las hojas de cálculo de los autores. El paper se leyó en HTML, y lo que se cita aquí coincide con ellas.
+- Los números salen de las hojas de cálculo de los autores.
 - El archivo se descargó de nuevo con la API de Zenodo el 2026-11-02. Su MD5 coincide con el que lista el registro de Zenodo, y su SHA-256 es `be705afb3f4dbffc806e476d00a6ca64c3f00783435ccc70945594276a17383b`. El script de arriba reproduce con él todos los números de esta página.
 - No se leyó ningún texto de payload.
 

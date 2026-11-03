@@ -126,7 +126,7 @@ La columna Bypass es el control: ahí corren todas las acciones, así que un "No
 
 Lo que esto respalda, solo para esta versión y en modo no interactivo:
 
-- **Los secretos dentro del proyecto quedan expuestos.** En el modo por defecto, `.env` se leyó sin aprobación, con la herramienta Read y con `cat`. El archivo falso demuestra la lectura, y uno real se comportaría igual.
+- **Los secretos dentro del proyecto quedan expuestos.** En el modo por defecto, `.env` se leyó sin aprobación, con la herramienta Read y con `cat`.
 - **Accept edits deja que el agente cambie sus propias instrucciones.** `CLAUDE.md` se escribió sin aprobación. `.claude/settings.local.json` se rechazó.
 - **Con bypass, una regla `deny` y un hook `deny` de usuario detuvieron cada uno las 16 acciones.** La regla era `deny` sobre las herramientas Bash, Read, Write y Edit.
 - **Una línea en un repositorio anula ese hook.** Con `disableAllHooks: true` en `.claude/settings.json`, las 16 volvieron a correr. Los contratos de arriba muestran que un hook administrado resistió esa misma línea.

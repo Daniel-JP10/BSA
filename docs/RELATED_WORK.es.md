@@ -2,7 +2,7 @@
 
 [English](RELATED_WORK.md)
 
-Revisado en noviembre de 2026. En los cuatro benchmarks más cercanos a BSA, los tamaños y las repeticiones se comprobaron contra el texto de cada paper, y se abrieron los enlaces a sus artefactos, salvo el de Red-Teaming. La columna "cómo se juzga el éxito" de INFUSE y Red-Teaming viene de un resumen del paper. Los benchmarks generales se leyeron desde sus abstracts o páginas. Comprueba los originales antes de citar. Las fuentes numeradas están en [REFERENCES.es.md](REFERENCES.es.md), y también se recalcularon los resultados publicados de IssueTrojanBench: ver [Datos publicados](PUBLISHED_DATA.es.md).
+Revisado en noviembre de 2026. Cuánto se leyó de cada fuente está en [REFERENCES.es.md](REFERENCES.es.md), así que comprueba los originales antes de citar. El recálculo de IssueTrojanBench que hizo BSA está en [Datos publicados](PUBLISHED_DATA.es.md).
 
 ## Benchmarks más cercanos a BSA
 
@@ -12,8 +12,6 @@ Revisado en noviembre de 2026. En los cuatro benchmarks más cercanos a BSA, los
 | [IssueTrojanBench](https://arxiv.org/abs/2607.20759) | Cursor, Claude Code, Codex Desktop | 696 artefactos, 4.176 corridas | Archivos marca que crea el agente, comprobados por el runner | Una corrida por configuración, comprobado en los resultados publicados | [Zenodo](https://doi.org/10.5281/zenodo.19245678) |
 | [AIShellJack](https://arxiv.org/abs/2509.22040) | Cursor, GitHub Copilot | 314 payloads, 70 técnicas ATT&CK | Coincidencia con comandos registrados | Cada test corrió una vez | [figshare](https://doi.org/10.6084/m9.figshare.30111988) |
 | [Red-Teaming Coding Agents](https://arxiv.org/abs/2509.05755) | Seis agentes de programación reales, entre ellos Claude Code y Cursor | 25 pares agente-modelo | Invocación de herramienta con el payload previsto | 10 intentos por par en su fase de fuga de prompts | Enlace anónimo |
-
-El artefacto de IssueTrojanBench indica en su entrada de cita la 41.ª Conferencia Internacional IEEE/ACM de Ingeniería de Software Automatizada (2026) con autores anonimizados, así que este repositorio lo trata como un preprint.
 
 ## Benchmarks generales de agentes
 
