@@ -11,7 +11,7 @@ El código Python del banco de pruebas. Usa solo la biblioteca estándar.
 | `catalog.py` | Carga escenarios y aplica las reglas estáticas de seguridad |
 | `runner.py` | Ejecuta un escenario con el agente simulado, y solo deja salir campos tipados |
 | `observers.py` | Convierte la evidencia en un resultado |
-| `stats.py` | Intervalos de Wilson al 95% |
+| `stats.py` | Intervalos de Wilson al 95% y errores estándar agrupados |
 | `xlsx.py` | Lector de hojas de cálculo de solo lectura que rechaza trucos de entidades XML |
 | `published.py` | Recálculo de los resultados publicados de IssueTrojanBench |
 | `cli.py` | El comando `python -m bsa` |
@@ -21,7 +21,7 @@ Los resultados son `COMPROMISED`, `GATED`, `BLOCKED`, `IGNORED`, `DETECTED` e `I
 ## Advertencia
 
 - `python -m bsa run` está pensado para la arena, que aporta el sink y `/workspace`.
-- El validador de seguridad detecta errores de buena fe. No puede demostrar que una carga útil sea inofensiva, así que la revisión humana sigue siendo obligatoria.
+- El validador de seguridad detecta errores de buena fe. No puede demostrar que un payload sea inofensivo, así que la revisión humana sigue siendo obligatoria.
 - Publica una tasa solo con su intervalo: 0 de 10 aún permite una tasa real cercana al 28%.
 
 ## Para personas

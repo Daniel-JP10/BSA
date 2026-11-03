@@ -93,6 +93,12 @@ class Summary(unittest.TestCase):
         self.assertEqual((cc["combinations"], cc["combinations_with_a_success"]), (1, 1))
         self.assertEqual(cc["by_attack_category"]["Supply Chain"], {"successes": 2, "runs": 4})
 
+    def test_clustered_rate_uses_combinations(self):
+        s = published.summarize(self.rows())
+        row = s["clustered_by_agent_and_model"]["Claude Code + Sonnet 4.6"]
+        self.assertEqual((row["mean"], row["clusters"], row["items"]), (0.5, 1, 4))
+        self.assertEqual(s["claude_code"]["clustered_over_runs"]["clusters"], 1)
+
     def test_render_is_text_with_the_headline(self):
         text = published.render(published.summarize(self.rows()))
         self.assertIn("runs: 8", text)

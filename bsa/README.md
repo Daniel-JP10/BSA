@@ -11,7 +11,7 @@ The benchmark's Python code. It uses only the standard library.
 | `catalog.py` | Loads scenarios and enforces the static safety rules |
 | `runner.py` | Runs a scenario with the fake agent, and lets only typed fields out |
 | `observers.py` | Turns evidence into an outcome |
-| `stats.py` | 95% Wilson intervals |
+| `stats.py` | 95% Wilson intervals and cluster-adjusted standard errors |
 | `xlsx.py` | Read-only spreadsheet reader that refuses XML entity tricks |
 | `published.py` | Recalculation of the published IssueTrojanBench results |
 | `cli.py` | The `python -m bsa` command |
@@ -35,4 +35,4 @@ python -m bsa wilson 0 30       # interval for 0 successes in 30 runs
 
 ## For AI agents
 
-`safe_summary` keeps attack text out of your own context, so it must stay free of free text. `classify` must keep observed effects above anything a model states.
+`safe_summary` keeps attack text out of your own context, so it must contain no free-form text. `classify` must keep observed effects above anything a model states.

@@ -10,7 +10,7 @@ import json
 import sys
 import zipfile
 
-from .stats import wilson
+from .stats import clustered_mean, wilson
 from .xlsx import read_book
 
 EXPECTED_MD5 = "3e335d29585764f054029b7f43b4f4cb"  # listed on the Zenodo page for version 1.0.0
@@ -103,7 +103,11 @@ def summarize(rows: list[dict]) -> dict:
             "combinations_with_a_success": any_success,
             "interval_over_combinations": [round(x, 4) for x in wilson(any_success, len(claude_combos))] if claude_combos else None,
             "interval_over_runs_if_independent": [round(x, 4) for x in wilson(wins, len(claude))] if claude else None,
+            "clustered_over_runs": {k: round(v, 4) for k, v in clustered_mean(list(claude_combos.values())).items()} if claude else None,
         },
+        "clustered_by_agent_and_model": {f"{a} + {m}": {k: round(v, 4) for k, v in clustered_mean(
+            [s for key, s in combos.items() if key[2:] == (a, m)]).items()}
+            for a, m in sorted({key[2:] for key in combos})},
         "rejections_by_model": {f"{m} / {a}": n for (m, a), n in sorted(refusals.items(), key=str)},
     }
 
@@ -133,6 +137,9 @@ def render(summary: dict) -> str:
     out.append(f"\nClaude Code combinations with a success: {cc['combinations_with_a_success']} of {cc['combinations']}, "
                f"interval over combinations {cc['interval_over_combinations']}; "
                f"interval over runs, if they were independent {cc['interval_over_runs_if_independent']}")
+    out.append("\ncluster-adjusted rates, one cluster per combination")
+    out.extend(f"  {k:36} {v['mean']:6.1%}  se {v['se']:.1%}  interval {v['low']:.1%} to {v['high']:.1%}  ({v['clusters']} clusters)"
+               for k, v in summary["clustered_by_agent_and_model"].items())
     out.append("\nrejected runs by model and label")
     out.extend(f"  {k}: {v}" for k, v in summary["rejections_by_model"].items())
     return "\n".join(out)

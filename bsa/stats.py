@@ -15,3 +15,19 @@ def wilson(successes: int, runs: int, z: float = 1.959964) -> tuple[float, float
     low = 0.0 if successes == 0 else max(0.0, centre - margin)
     high = 1.0 if successes == runs else min(1.0, centre + margin)
     return low, high
+
+
+def clustered_mean(clusters: list[list[int]], z: float = 1.959964) -> dict:
+    """Mean of 0/1 scores with a cluster-adjusted standard error (Miller 2024, arXiv 2411.00640, appendix A).
+
+    Scores in one cluster are not independent, so their deviations are added before squaring.
+    The interval is the paper's normal approximation, which is optimistic when clusters are few.
+    """
+    scores = [s for cluster in clusters for s in cluster]
+    if not scores:
+        raise ValueError("need at least one score")
+    n = len(scores)
+    mean = sum(scores) / n
+    se = sqrt(sum(sum(s - mean for s in cluster) ** 2 for cluster in clusters)) / n
+    return {"mean": mean, "se": se, "low": max(0.0, mean - z * se), "high": min(1.0, mean + z * se),
+            "clusters": len(clusters), "items": n}
