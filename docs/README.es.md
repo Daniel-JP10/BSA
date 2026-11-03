@@ -9,7 +9,7 @@ Empieza aquí para ver lo que BSA ha medido, lo que supone y lo que no puede dec
 | Documento | Contenido |
 |---|---|
 | [RESULTS.es.md](RESULTS.es.md) | Lo medido hasta ahora y cómo repetirlo |
-| [RESULTS.json](RESULTS.json) | Los mismos valores, como datos |
+| [RESULTS.json](RESULTS.json), [MATRIX.json](MATRIX.json), [DRIFT.json](DRIFT.json) | Los mismos valores, como datos |
 | [THREAT_MODEL.es.md](THREAT_MODEL.es.md) | Qué evalúa BSA y qué amenaza al propio BSA |
 | [LIMITATIONS.es.md](LIMITATIONS.es.md) | Qué no cubre ni demuestra BSA |
 | [RELATED_WORK.es.md](RELATED_WORK.es.md) | Benchmarks académicos y su relación con BSA |
@@ -20,7 +20,7 @@ Cada documento tiene una versión en inglés sin el sufijo `.es`.
 
 ## Advertencia
 
-Las cifras de `RELATED_WORK.es.md` pertenecen a los papers citados y valen para sus montajes, así que lee los originales antes de citarlas. BSA no ha publicado resultados de ataques.
+Las cifras de `RELATED_WORK.es.md` pertenecen a los papers citados y valen para sus configuraciones, así que lee los originales antes de citarlas. BSA no ha publicado resultados de ataques.
 
 ## Para personas
 

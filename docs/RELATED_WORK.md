@@ -23,14 +23,20 @@ IssueTrojanBench's artifact lists the 41st IEEE/ACM International Conference on 
 | [LivePI](https://arxiv.org/abs/2605.17986) | Real OpenClaw on a real virtual machine | Live environment, with an LLM judge plus artifact inspection |
 | [PIArena](https://arxiv.org/abs/2604.08499) | Unified platform over existing benchmarks | Adaptive, feedback-based attacks |
 | [Taxonomy of 40 safety benchmarks](https://arxiv.org/abs/2605.16282) | Survey | Reports that benchmark choice can yield contradictory conclusions, and that coverage counts often overstate depth |
+| [AgentDrift](https://arxiv.org/abs/2609.06972) | 12,536 synthetic trajectories, 71,024 labeled steps | A corpus for training detectors, which labels the step where an injection enters. It runs no product |
 
-## What BSA plans to take from them
+## Reports on the controls themselves
 
-- Run real products, as IssueTrojanBench does.
-- Use deterministic checks and avoid LLM judges, as AgentDojo does.
-- Isolate runs in containers with simulated destinations, as INFUSE does.
-- Report confidence intervals and utility, which INFUSE does for parts of its evaluation.
-- Organize attacks into families, and report by family.
+| Work | What it reports | Note for BSA |
+|---|---|---|
+| [From Approval to Abuse](https://arxiv.org/abs/2610.22987) | Text planted in a repository steers an agent into asking for a broad allow-rule. Across products including Claude Code and Codex CLI, agents elicited the target rule in 58% of instances, and with the rule approved, 47 of 58 eligible instances reached their goal silently | Approval is a control that can be attacked. BSA has not measured this, because it needs a person's decision |
+| [Breaking Claude Code Opus 5 Auto Mode](https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/) | Lab runs by the author with small samples (3 of 5, 3 of 5 and 4 of 5). As the author tells it, the vendor closed the report as informative and pointed to operating-system isolation and network egress control as the real boundary | BSA's matrix leaves auto mode out, since it depends on a classifier the scripted model cannot stand in for |
+
+## What BSA takes from them, and where it parts ways
+
+From these works BSA takes deterministic checks instead of LLM judges (AgentDojo), containers with simulated destinations (INFUSE), verdicts based on files and other effects (IssueTrojanBench), and the idea of organizing attacks into families.
+
+It does not repeat them. Those benchmarks fool a real model and count how often it obeys, which measures the model first. BSA replaces the model with a script that asks for the risky action, as a model that has already been fooled would, and measures what the product's controls do next. That needs no attack text and no account, and it gives the same answer on every run.
 
 ## The gap BSA aims at
 
@@ -40,7 +46,7 @@ No single work reviewed here combines all of the following on closed commercial 
 2. Repeated runs with confidence intervals.
 3. A permission mode matrix.
 4. Pinned versions, re-run over time to show drift.
-5. Utility and false positive measurements for product-level defences.
-6. The product's effect separated from the model's effect. In the published IssueTrojanBench results, the same model gave the same outcome in every paired run across different products, so the two cannot be told apart ([details](PUBLISHED_DATA.md)).
+5. Utility and false positive measurements for product-level defenses.
+6. The product's effect separated from the model's effect. The IssueTrojanBench authors report that no rejection came from a product's framework, and that the same model gave the same results across products ([details](PUBLISHED_DATA.md)).
 
-This is a statement about the works listed here, not about everything published. It must be checked again before any public claim. BSA has not achieved these points yet.
+This is a statement about the works listed here, not about everything published. Today BSA covers points 1, 3, 4 and 6 for one agent, with a scripted model: see the [control matrix](RESULTS.md#control-matrix) and the [version comparison](RESULTS.md#the-same-contracts-across-versions). Point 2 does not apply to deterministic controls yet, and point 5 is not done.
