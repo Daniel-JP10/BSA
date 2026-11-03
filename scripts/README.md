@@ -10,7 +10,7 @@ Commands that run on the host.
 |---|---|
 | `arena.py` | Builds, verifies, runs and removes the arena, and checks that containers, networks and volumes from other projects did not change |
 | `dev.py` | Manages the development container |
-| `exposure_audit.py` | Scans what Git would publish and the full commit history for secrets, personal data, hidden characters, image metadata and forbidden files |
+| `exposure_audit.py` | Scans what Git would publish and the text of the full commit history for secrets, personal data, hidden characters, image metadata and forbidden files |
 | `analyze_published.py` | Recalculates the published IssueTrojanBench results inside a container with no network. See [Published data](../docs/PUBLISHED_DATA.md) |
 
 ## Warning

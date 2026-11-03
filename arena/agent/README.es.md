@@ -18,7 +18,7 @@ Esta imagen es un sujeto de prueba: mantenla lejos del trabajo diario y de crede
 
 ## Para personas
 
-`python scripts/arena.py up` construye la imagen. Para probar otra versión del agente, cambia la versión en `Dockerfile` y vuelve a ejecutar `python scripts/arena.py all`. Los resultados valen para una sola versión, así que una versión nueva puede requerir nuevos valores registrados en `contracts.py`.
+`python scripts/arena.py up` construye la imagen. Para mirar otra versión del agente sin cambiar nada, ejecuta `python scripts/arena.py drift <versión>`. Para mover la versión fijada, cambia el valor por defecto en `Dockerfile` y `compose.yml`, vuelve a ejecutar `python scripts/arena.py all` y registra de nuevo la matriz. Los resultados valen para una sola versión, así que una versión nueva puede requerir nuevos valores registrados en `contracts.py`.
 
 ## Para agentes de IA
 

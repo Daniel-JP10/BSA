@@ -10,7 +10,7 @@ Comandos que corren en el host.
 |---|---|
 | `arena.py` | Construye, verifica, ejecuta y elimina la arena, y comprueba que no cambiaron contenedores, redes ni volúmenes de otros proyectos |
 | `dev.py` | Gestiona el contenedor de desarrollo |
-| `exposure_audit.py` | Revisa lo que Git publicaría y todo el historial de commits en busca de secretos, datos personales, caracteres ocultos, metadatos de imágenes y archivos prohibidos |
+| `exposure_audit.py` | Revisa lo que Git publicaría y el texto de todo el historial de commits en busca de secretos, datos personales, caracteres ocultos, metadatos de imágenes y archivos prohibidos |
 | `analyze_published.py` | Recalcula los resultados publicados de IssueTrojanBench dentro de un contenedor sin red. Ver [Datos publicados](../docs/PUBLISHED_DATA.es.md) |
 
 ## Advertencia

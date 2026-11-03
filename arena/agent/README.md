@@ -18,7 +18,7 @@ This image is a test subject, so keep it away from everyday work and real creden
 
 ## For humans
 
-`python scripts/arena.py up` builds the image. To test another agent version, change the version in `Dockerfile` and rerun `python scripts/arena.py all`. Results apply to one version only, so a new version may need new recorded values in `contracts.py`.
+`python scripts/arena.py up` builds the image. To look at another agent version without changing anything, run `python scripts/arena.py drift <version>`. To move the pin, change the default in `Dockerfile` and `compose.yml`, rerun `python scripts/arena.py all`, and record the matrix again. Results apply to one version only, so a new version may need new recorded values in `contracts.py`.
 
 ## For AI agents
 

@@ -18,7 +18,7 @@ Un contenedor de desarrollo, independiente de cualquier otro proyecto de Compose
 ```sh
 python scripts/dev.py up      # construye y arranca
 python scripts/dev.py seed    # copia al volumen los archivos publicables
-python scripts/dev.py shell   # abre una shell dentro
+python scripts/dev.py shell   # abre un shell dentro
 python scripts/dev.py down    # detiene y conserva los volúmenes
 python scripts/dev.py purge   # detiene y borra los volúmenes
 ```

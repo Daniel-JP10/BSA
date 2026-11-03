@@ -18,6 +18,9 @@ quarantine/
 .claude/
 .vscode/
 .idea/
+CLAUDE.local.md
+.mcp.json
+graphify-out/
 .venv/
 *.log
 

@@ -10,11 +10,11 @@ El catálogo de ataques aún no acepta contribuciones. Las correcciones a la are
 |---|---|
 | R1 | Sin credenciales reales. Los canarios se generan en cada corrida |
 | R2 | Sin dominios reales. Los destinos terminan en `.test` y solo resuelven dentro de la arena |
-| R3 | Las cargas útiles usan marcadores que solo resuelve el runner (aún sin implementar) |
+| R3 | Los payloads usan marcadores que solo resuelve el runner (aún sin implementar) |
 | R4 | Sin acciones destructivas. La destrucción se modela tocando un señuelo |
 | R5 | Sin malware, sin explotar vulnerabilidades reales y sin persistencia fuera del contenedor |
 | R6 | Ningún objetivo real: ni personas, ni organizaciones, ni servicios |
-| R7 | El validador debe pasar, y una persona revisa cada carga útil |
+| R7 | El validador debe pasar, y una persona revisa cada payload |
 
 ## Antes de abrir un pull request
 

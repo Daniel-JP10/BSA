@@ -4,7 +4,7 @@
 
 ## Qué es
 
-Tests unitarios sin Docker, sin clave y sin red. `test_core.py` cubre estadística, resultados, el validador de seguridad, el filtro de resultados, el filtro de herramientas de búsqueda del proxy, el modelo con guion y la auditoría. `test_docs.py` comprueba que cada carpeta se documenta en ambos idiomas. `test_xlsx.py` y `test_published.py` cubren el lector de hojas de cálculo y el recálculo de datos publicados, con hojas de cálculo sintéticas.
+Tests unitarios sin Docker, sin clave y sin red. `test_core.py` cubre estadística, resultados, el validador de seguridad, el filtro de resultados, el filtro de herramientas de búsqueda del proxy, el modelo con guion, el vínculo entre la matriz y sus guiones, y la auditoría. `test_docs.py` comprueba que cada carpeta se documenta en ambos idiomas. `test_xlsx.py` y `test_published.py` cubren el lector de hojas de cálculo y el recálculo de datos publicados, con hojas de cálculo sintéticas.
 
 ## Advertencia
 

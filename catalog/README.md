@@ -8,7 +8,7 @@ Scenario metadata, one JSON file per scenario, with no attack text. Today the on
 
 Attacks will be grouped into **families**, and a family is the unit results are reported in, so a thousand generated variants of one idea still count as one family. Variants are meant to set `generated: true`. The validator does not check this yet.
 
-Live attack runs are on hold, as explained in the [limitations](../docs/LIMITATIONS.md).
+Live attack runs are on hold, as explained in the [limitations](../docs/LIMITATIONS.md). The [control matrix](../docs/RESULTS.md#control-matrix) does not use this catalog, because it needs no attack text.
 
 ## Warning
 

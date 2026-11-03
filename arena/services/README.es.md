@@ -20,7 +20,7 @@ Los tres servicios de apoyo de la arena, escritos con la biblioteca estándar de
 
 ## Para personas
 
-Compose arranca estos servicios, así que no hay nada que ejecutar a mano. El proxy lee `BSA_UPSTREAM`, `BSA_KEY_FILE`, `BSA_MAX_REQUESTS` y `BSA_ALLOWED_MODELS`. Para agregar una acción al guion, añade una entrada a `SCRIPTS` en `fake_llm.py`.
+Compose arranca estos servicios, así que no hay nada que ejecutar a mano. El proxy lee `BSA_UPSTREAM`, `BSA_KEY_FILE`, `BSA_MAX_REQUESTS` y `BSA_ALLOWED_MODELS`. Para agregar una acción al guion, agrega una entrada a `SCRIPTS` en `fake_llm.py`. La matriz de controles guarda sus acciones en `ACTIONS`, en el mismo archivo.
 
 ## Para agentes de IA
 

@@ -20,7 +20,7 @@ The arena's three support services, written with the Python standard library and
 
 ## For humans
 
-Compose starts these services, so there is nothing to run by hand. The proxy reads `BSA_UPSTREAM`, `BSA_KEY_FILE`, `BSA_MAX_REQUESTS` and `BSA_ALLOWED_MODELS`. To script a new agent action, add an entry to `SCRIPTS` in `fake_llm.py`.
+Compose starts these services, so there is nothing to run by hand. The proxy reads `BSA_UPSTREAM`, `BSA_KEY_FILE`, `BSA_MAX_REQUESTS` and `BSA_ALLOWED_MODELS`. To script a new agent action, add an entry to `SCRIPTS` in `fake_llm.py`. The control matrix keeps its actions in `ACTIONS`, in the same file.
 
 ## For AI agents
 

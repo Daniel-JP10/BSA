@@ -11,7 +11,7 @@ The attack catalog is not open for contributions yet. Fixes to the arena, the ru
 | R1 | No real credentials. Canaries are generated for each run |
 | R2 | No real domains. Destinations end in `.test` and resolve only inside the arena |
 | R3 | Payloads use placeholders resolved only by the runner (not implemented yet) |
-| R4 | No destructive actions. Destruction is modelled by touching a decoy |
+| R4 | No destructive actions. Destruction is modeled by touching a decoy |
 | R5 | No malware, no exploitation of real vulnerabilities, no persistence outside the container |
 | R6 | No real targets: no people, organizations or services |
 | R7 | The validator must pass, and a person reviews every payload |
